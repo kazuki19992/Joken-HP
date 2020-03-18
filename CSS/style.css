@@ -1,9 +1,21 @@
 #title {
-    font-size: 2em;
+    margin-left: 5%;
+    font-size: 3.5em;
+    color: gray;
+}
+
+#title #j{
+    color: rgb(38, 153, 4);
     font-weight: bold;
 }
 
 header {
     display: block;
-    background-color: rgb(13, 156, 212);
+    position: relative;
+    box-shadow: 0 0 8px gray;
+    padding-left: 2em;
+    padding-top: 1em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    z-index: 5;
 }

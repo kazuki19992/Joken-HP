@@ -25,13 +25,22 @@
         </div>
 
         <p class="nv_cts0"><i class="fas fa-utensils"></i> 食べる</p>
-        <a class="nv_Link" href="./search.php"> <i class="fas fa-search"></i> 検索 </a>
-        <a class="nv_Link" href="./submit.php"> <i class="fas fa-paper-plane"></i> 新規投稿 </a>
-        <a class="nv_Link" href="./apps.php"> <i class="fas fa-home"></i> ホームに戻る </a>
+        <a class="nv_Link" href="./search.php"> <i class="fas fa-newspaper"></i> What's new </a>
+        <a class="nv_Link" href="./submit.php"> <i class="fas fa-microchip"></i> Tech Dojo </a>
+        <a class="nv_Link" href="./apps.php"> <i class="fas fa-database"></i> オープンデータ </a>
         <BR>
         <p class="nv_cts1"><i class="fas fa-user-circle"></i> アカウント</p>
-        <a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-cog"></i> アカウント設定 </a>
-        <a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-out-alt"></i> ログアウト </a>
+        <?php
+            // ログイン中か確認する
+            if(empty($_SESSION['member'])){
+                // ログインしていない
+                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-plus"></i> アカウント作成 </a>');
+                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-in-alt"></i> ログイン </a>');
+            }else{
+                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-cog"></i> アカウント設定 </a>');
+                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-out-alt"></i> ログアウト </a>');
+            }
+        ?>
         <BR>
         
     </div>
