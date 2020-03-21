@@ -23,10 +23,10 @@
 
 #nav-open {
     display: inline-block;
-    width: 30px;
-    height: 22px;
+    /* width: 30px;
+    height: 22px; */
     vertical-align: middle;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
 }
 
 
@@ -118,21 +118,21 @@
     color: skyblue;
     text-decoration: none;
 }
-
+/* 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #UserInfo {
         background-image: linear-gradient(to top, rgba(48, 207, 208, 0.8) 0%, rgba(51, 8, 103, 0.8) 100%), url(../IMG/Chrome.jpg);
         background-size: cover;
         /* height: 10em; */
-    }
+    /* }
 }
 
 @-moz-document url-prefix() {
     #UserInfo {
         background-image: linear-gradient(to top, rgba(208, 120, 48, 0.8) 0%, rgba(8, 73, 103, 0.8) 100%), url(../IMG/firefox.png);
-        background-size: cover;
+        background-size: cover; */
         /* height: 10em; */
-    }
+    /* }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -140,10 +140,10 @@
     _:future,
      :root #UserInfo {
         background-image: linear-gradient(to top, rgba(255, 166, 248, 0.8) 0%, rgba(86, 0, 185, 0.8) 100%), url(../IMG/safari.png);
-        background-size: cover;
+        background-size: cover; */
         /* height: 10em; */
-    }
-}
+    /* }
+} */ 
 
 .nv_Link {
     padding: 0.5em 1em;
@@ -193,6 +193,22 @@
     color: #fff;
 }
 
+.nv_Link3 {
+    padding: 0.5em 1em;
+    display: block;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 30, 67, 1) 50%);
+    background-position: 0 0;
+    background-size: 200% auto;
+    transition: .3s;
+    font-size: 125%;
+    color: #001E43;
+}
+
+.nv_Link3:hover {
+    background-position: -100% 0;
+    color: #fff;
+}
+
 .nv_cts0 {
     padding: 0.2em 1em;
     color: #ff9800;
@@ -211,6 +227,17 @@
     size: 50%;
 }
 
+.nv_cts3 {
+    padding: 0.2em 1em;
+    color: #001E43;
+    size: 50%;
+}
+
+#login_user {
+    margin-top: 3.75em;
+    text-align: center;
+    color: gray;
+}
 
 /* #browser {
     margin-top: 9em;

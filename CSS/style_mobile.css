@@ -1,4 +1,3 @@
-/* 共通 */
 #title {
     margin-left: 2%;
     font-size: 3.5em;
@@ -6,13 +5,11 @@
     font-style: italic;
 }
 
-/* 共通 */
 #title #j{
     color: rgb(38, 153, 4);
     font-weight: bold;
 }
 
-/* 共通 */
 header {
     display: block;
     width: 100%;
@@ -27,7 +24,6 @@ header {
     z-index: 5;
 }
 
-/* 共通 */
 #contents {
     padding-top: 7em;
     width: 90%;
@@ -35,7 +31,6 @@ header {
     margin-right: auto;
 }
 
-/* 共通 */
 #green-title {
     padding: 0.25em 0.5em;/*上下 左右の余白*/
     color: #494949;/*文字色*/
@@ -43,18 +38,10 @@ header {
     border-left: solid 5px rgb(38, 153, 4);/*左線*/
 }
 
-/* PCのみ */
-#left {
-    float: left;
-    width: 47.5%;
-    margin-right: 5%;
+.top-news-info {
+    display: none;
 }
 
-/* PCとSPで内容が異なります */
-.top-news-info {
-    color: rgb(75, 75, 75);
-    font-size: 7pt;
-}
 
 /* 共通 */
 .top-jump {
@@ -64,20 +51,6 @@ header {
 }
 .news-jump {
     color: rgb(38, 153, 4);
-}
-
-/* PCのみ */
-#right {
-    float: left;
-    width: 47.5%;
-}
-#right-padding {
-    padding-top: 5.5em;
-    float: left;
-    width: 47.5%;
-}
-#right-up {
-    margin-bottom: 2em;
 }
 
 /* 共通 */
@@ -100,13 +73,4 @@ header {
 .card_p {
     padding-bottom: 0.5em;
     padding-top: 0.25em;
-}
-
-.none {
-    text-align: center;
-    width: 100%;
-    height: 25em;
-    margin: auto;
-    vertical-align: middle;
-    color: #757575;
 }

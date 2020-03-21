@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>食べ○グ</title>
+    <title>Joken</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
@@ -16,6 +18,9 @@
     <!-- fontawesome(アイコン) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/style.css" media="screen and (min-width: 1024px)">
+
+    <!-- スマホ用 -->
+    <link rel="stylesheet" href="./CSS/style_mobile.css" media="screen and (max-width: 1023px)">
     <link rel="stylesheet" type="text/css" href="./CSS/HamburgerMenu.css">
 </head>

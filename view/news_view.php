@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <?php
-        require('./view/html_head.php');
-    ?>
+<!-- ニュース画面 -->
+
+<?php
+    require('./view/html_head.php');
+?>
 <body>
     <?php
         require('./view/header.php');
     ?>
+    
     
 </body>
 </html>

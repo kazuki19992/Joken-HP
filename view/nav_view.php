@@ -1,13 +1,12 @@
 <span id="nav-drawer">
     <input id="nav-input" type="checkbox" class="nav-unshown">
-    <label id="nav-open" for="nav-input"><span></span></label>
+    <label id="nav-open" for="nav-input"><!--<span></span>--><i class="fas fa-bars fa-fw fa-3x"></i></label>
     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
     <div id="nav-content">
-        <div id="UserInfo">
+        <!-- <div id="UserInfo"> -->
             <div style="color:#ffffff;">
                 <center>
-                    <div id="browser">
-                        <br><br><br><br><br><br>
+                    <div id="login_user">
                         <?php
                             // ログイン中か確認する
                             if(empty($_SESSION['member'])){
@@ -20,28 +19,38 @@
                             }
                         ?>
                     </div>
+                    <hr>
                 </center>
-            </div>
+            <!-- </div> -->
         </div>
 
-        <p class="nv_cts0"><i class="fas fa-utensils"></i> 食べる</p>
-        <a class="nv_Link" href="./search.php"> <i class="fas fa-newspaper"></i> What's new </a>
-        <a class="nv_Link" href="./submit.php"> <i class="fas fa-microchip"></i> Tech Dojo </a>
-        <a class="nv_Link" href="./apps.php"> <i class="fas fa-database"></i> オープンデータ </a>
+        <p class="nv_cts0"><i class="fas fa-laptop-code fa-fw"></i> サークル</p>
+        <a class="nv_Link" href="./search.php"> <i class="fas fa-newspaper fa-fw"></i> お知らせ </a>
+        <a class="nv_Link" href="" onclick="alert('この機能は今後解放予定です。\nお楽しみに！')"> <i class="fas fa-database fa-fw"></i> Knowledge Space </a>
         <BR>
-        <p class="nv_cts1"><i class="fas fa-user-circle"></i> アカウント</p>
+        <p class="nv_cts1"><i class="fas fa-user-circle fa-fw"></i> アカウント</p>
         <?php
             // ログイン中か確認する
             if(empty($_SESSION['member'])){
                 // ログインしていない
-                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-plus"></i> アカウント作成 </a>');
-                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-in-alt"></i> ログイン </a>');
+                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-plus fa-fw"></i> アカウント登録 </a>');
+                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-in-alt fa-fw"></i> ログイン </a>');
             }else{
-                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-cog"></i> アカウント設定 </a>');
-                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-out-alt"></i> ログアウト </a>');
+                echo('<a class="nv_Link1" href="./settings.php"> <i class="fas fa-user-cog fa-fw"></i> アカウント設定 </a>');
+                echo('<a class="nv_Link1" href="./logout.php"> <i class="fas fa-sign-out-alt fa-fw"></i> ログアウト </a>');
             }
         ?>
         <BR>
+        <p class="nv_cts2"><i class="fas fa-meteor fa-fw"></i> その他</p>
+        <a class="nv_Link2" href="./about.php"> <i class="fas fa-info-circle fa-fw"></i> このページについて </a>
+        <a class="nv_Link2" href="https://github.com/kazuki19992/Joken-HP" target="_blank" rel="noopener noreferrer"> <i class="fab fa-github fa-fw"></i> 当サイトのリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></a>
+        <BR>
+        <p class="nv_cts3"><i class="fas fa-tools fa-fw"></i> 管理ツール</p>
+        <a class="nv_Link3" href=""> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>
+        <a class="nv_Link3" href=""> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>
+        <a class="nv_Link3" href=""> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>
+        <a class="nv_Link3" href=""> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>
+        
         
     </div>
 </span>
