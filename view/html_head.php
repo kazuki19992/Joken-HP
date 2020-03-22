@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Joken</title>
+    <link rel="shortcut icon" href="./IMG/favicon.png" type="image/png">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     

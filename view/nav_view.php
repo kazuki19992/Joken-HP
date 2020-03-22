@@ -25,7 +25,7 @@
         </div>
 
         <p class="nv_cts0"><i class="fas fa-laptop-code fa-fw"></i> サークル</p>
-        <a class="nv_Link" href="./search.php"> <i class="fas fa-newspaper fa-fw"></i> お知らせ </a>
+        <a class="nv_Link" href="./news.php"> <i class="fas fa-newspaper fa-fw"></i> お知らせ </a>
         <a class="nv_Link" href="" onclick="alert('この機能は今後解放予定です。\nお楽しみに！')"> <i class="fas fa-database fa-fw"></i> Knowledge Space </a>
         <BR>
         <p class="nv_cts1"><i class="fas fa-user-circle fa-fw"></i> アカウント</p>
@@ -50,7 +50,7 @@
         <a class="nv_Link3" href=""> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>
         <a class="nv_Link3" href=""> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>
         <a class="nv_Link3" href=""> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>
-        
+        <a class="nv_Link3" href=""> <i class="fas fa-power-off"></i> すべてをイチからやり直す </a>
         
     </div>
 </span>

@@ -42,6 +42,11 @@ header {
     display: none;
 }
 
+/* SPのみ */
+#news-info {
+    color: rgb(75, 75, 75);
+    font-size: 7pt;
+}
 
 /* 共通 */
 .top-jump {
@@ -73,4 +78,16 @@ header {
 .card_p {
     padding-bottom: 0.5em;
     padding-top: 0.25em;
+}
+
+/* SPのみ */
+.flexbox {
+    display: flex;
+    flex-flow: column;
+}
+#wiki-left {
+    order: 2;
+}
+#wiki-right {
+    order: 1;
 }

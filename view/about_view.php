@@ -53,6 +53,14 @@ require('./view/html_head.php');
                 <a href="https://github.com/kazuki19992/Joken-HP" class="waves-effect waves-teal btn-flat" target="_blank" rel="noopener noreferrer"><span  class="light-blue-text text-darken-4"><i class="fab fa-github fa-fw"></i> GitHubリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></span></a>
                 </div>
             </div>
+
+            <div class="card grey lighten-3 hoverable">
+                <div class="card-content">
+                    <span class="card-title">クレジット</span>
+                    <p class="card_p">製作：櫛田一樹(2020年度 情報研究会 会長)</p>
+                    <p class="card_p">日本大学工学部 情報研究会</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

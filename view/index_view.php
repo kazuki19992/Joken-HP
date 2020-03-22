@@ -47,7 +47,7 @@
 
             <!-- 右寄せのdivを作って中にaタグを入れるっぽい -->
             <div class="top-jump">
-                <a href="#!" class="news-jump"><i class="fas fa-newspaper fa-fw"></i> もっと読む</a>
+                <a href="./news.php" class="news-jump"><i class="fas fa-newspaper fa-fw"></i> もっと読む</a>
             </div>
         </div>
 
