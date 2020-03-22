@@ -43,11 +43,15 @@ require('./view/html_head.php');
                     サイトリニューアル！<BR>
                     <span class="top-news-info">2020/03/20 カズ之助</span>
                 </a>
+                <a href="#!" class="collection-item">
+                    クローズドテストへの参加ありがとうございます！<BR>
+                    <span class="top-news-info">2020/03/20 カズ之助</span>
+                </a>
             </div>
         </div>
 
         <div id="wiki-right">
-            <h4 id="blue-title">サイトリニューアル！</h4>
+            <h4 id="blue-title">クローズドテストへの参加ありがとうございます！</h4>
             <p id="news-info">2020/03/20 カズ之助</p>
             <hr>
             ここに内容が表示されます

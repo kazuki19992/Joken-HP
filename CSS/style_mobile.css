@@ -42,7 +42,7 @@ header {
     display: none;
 }
 
-/* SPのみ */
+/* 共通 */
 #news-info {
     color: rgb(75, 75, 75);
     font-size: 7pt;
