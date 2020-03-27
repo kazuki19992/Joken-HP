@@ -91,3 +91,13 @@ header {
 #wiki-right {
     order: 1;
 }
+
+/* 共通 */
+#init_btn {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+}
+#init_back{
+    margin-right: 1em;
+}

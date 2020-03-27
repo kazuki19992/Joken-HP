@@ -50,7 +50,7 @@
         <a class="nv_Link3" href=""> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>
         <a class="nv_Link3" href=""> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>
         <a class="nv_Link3" href=""> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>
-        <a class="nv_Link3" href=""> <i class="fas fa-power-off"></i> すべてをイチからやり直す </a>
+        <a class="nv_Link3" href="./initialization.php"> <i class="fas fa-power-off fa-fw"></i> 初期設定 </a>
         
     </div>
 </span>
