@@ -10,6 +10,15 @@ if(isset($_GET['mode'])){
         if(isset($_POST['db_host']) && isset($_POST['db_name'])){
             $dbhost = $_POST['db_host'];
             $dbname = $_POST['db_name'];
+            if($dbhost === "" || $dbname === ""){
+                // 空文字チェック
+                $message = 'データベースホストかデータベース名が入力されていません';
+                $err_code = '200';
+                $detail = 'データベース名かデータベースのホストが入力されていません。';
+                err_jmp(1, $message, './initialization.php?page=2', $err_code,$detail);
+                exit();
+            }
+
             $dsn = 'mysql:dbname='.$dbname.';host='.$dbhost.';charset=utf8';
             if(regist_fwrite('../helpers/DB_DSN', $dsn) === 0){
                 header('Location: ../initialization.php?page=4');
