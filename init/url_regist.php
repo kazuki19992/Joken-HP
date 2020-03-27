@@ -1,5 +1,5 @@
 <?php
-
+require_once('../helpers/error_helper.php');
 
 if(isset($_POST['site_url'])){
     $url = $_POST['site_url'];
@@ -7,14 +7,19 @@ if(isset($_POST['site_url'])){
         header('Location: ../initialization.php?page=2');
         exit();
     }else{
-        $message = '登録処理に失敗しました。URL設定画面へ戻ります。';
+        $message = '登録処理に失敗しました';
+        $err_code = '100';
+        $detail = 'ファイルオープンに失敗しました。<BR>時間を空けてリトライしてください。';
+        err_jmp(1, $message, './initialization.php?page=1', $err_code,$detail);
+
     }
 }else{
-    $message = 'URLの取得に失敗しました。\nこのページにはURL設定画面からアクセスしてください。\nそれでも失敗する場合はシステム管理者へご連絡ください。';
+    $message = 'URLの取得に失敗しました';
+    $err_code = '002';
+    $detail = 'URLの取得に失敗しました。<BR>このページにはURL設定画面からアクセスしてください。<BR>それでも失敗する場合はシステム管理者へご連絡ください。';
+    err_jmp(1, $message, './initialization.php?page=1', $err_code,$detail);
 }
 
-var_dump($_POST['site_url']);
-
-$alert = '<script type = text/javascript>alert("'.$message.'");</script>';
-echo $alert;
-header('Location: ../initialization.php?page=1');
+// $alert = '<script type = text/javascript>alert("'.$message.'");</script>';
+// echo $alert;
+// header('Location: ../initialization.php?page=1');
