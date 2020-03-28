@@ -2,8 +2,8 @@
 
 $filename = './helpers/DB_DSN';
 $fp = fopen($filename, 'r');
-if($fp = FALSE){
-    header('Location: ./initialize.php');
+if($fp === FALSE){
+    header('Location: ./initialization.php');
     exit();
 }
 $dsn = fgets($fp);
@@ -12,8 +12,8 @@ fclose($fp);
 
 $filename = './helpers/DB_ACCOUNT';
 $fp = fopen($filename, 'r');
-if($fp = FALSE){
-    header('Location: ./initialize.php');
+if($fp === FALSE){
+    header('Location: ./initialization.php');
     exit();
 }
 $db_user = fgets($fp);
@@ -24,8 +24,8 @@ fclose($fp);
 
 $filename = './helpers/SITE_URL';
 $fp = fopen($filename, 'r');
-if($fp = FALSE){
-    header('Location: ./initialize.php');
+if($fp === FALSE){
+    header('Location: ./initialization.php');
     exit();
 }
 $site_url = fgets($fp);

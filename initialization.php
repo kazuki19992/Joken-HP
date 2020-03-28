@@ -110,7 +110,7 @@ if(isset($_GET['page'])) {
                 <label for="site_url">アカウント名</label>
             </div>
             <div class="input-field">
-                <input id="password" type="password" class="validate" name="password">
+                <input id="password" type="text" class="validate" name="password">
                 <label for="password">パスワード</label>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="submit">
@@ -126,6 +126,13 @@ if(isset($_GET['page'])) {
         $HTML = <<< EOD
         
         <script>
+        $(document).ready(function() {
+            // initialize
+            $('input#input_text, textarea#textarea1').characterCounter();
+            
+            // need this!!
+            $('div.input-field span:last-child').remove();
+        });
         $(document).ready(function(){
             $('select').formSelect();
         });
@@ -138,16 +145,16 @@ if(isset($_GET['page'])) {
         <h5 class="blue-title">個人情報設定</h4>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="site_url" type="text" class="validate" name="name">
-                    <label for="site_url">名前</label>
+                    <input id="name" type="text" class="validate" name="name">
+                    <label for="name">名前</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="password" class="validate" name="password">
-                    <label for="password">パスワード</label>
+                    <input id="std_num" type="text" class="validate" name="std_num" data-length="6">
+                    <label for="std_num">学生番号(学部生:6桁, 院生:5桁)</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="site_url" type="text" class="validate" name="address">
-                    <label for="site_url">現住所</label>
+                    <input id="address" type="text" class="validate" name="address">
+                    <label for="address">現住所</label>
                 </div>
                 <div class="input-field col s12">
                     <select name="role">
@@ -169,6 +176,118 @@ if(isset($_GET['page'])) {
         
         EOD;
     }elseif($page === '6'){
+        if(isset($_POST['name'], $_POST['std_num'], $_POST['address'], $_POST['role'])){
+            $name = $_POST['name'];
+            $std_num = $_POST['std_num'];
+            $address = $_POST['address'];
+            $role = $_POST['role'];
+
+            // 異常値検出時にtrue
+            $errflg200 = FALSE;
+            
+            // バリデーション(空文字)
+            if($name === "" || $std_num === "" || $address === ""){
+                $errflg200 = TRUE;
+            }
+            
+            // バリデーション(文字数)
+            if(mb_strlen($std_num, 'UTF-8') > 6 || mb_strlen($std_num, 'UTF-8') < 5){
+                $errflg200 = TRUE;
+            }
+
+            // バリデーション(role)
+            if($role !== '1' && $role !== '2' && $role !== '3' && $role !== '4' && $role !== '5'){
+                $errflg200 = TRUE;
+            }
+
+            // エラー有効時にエラー画面表示
+            if($errflg200){
+                $back_btn_flg = 2;
+                $submit = true;
+                $message = 'パラメータに異常値が含まれています';
+                $err_code = '200';
+                $detail = 'パラメータに異常値が含まれています。<BR>
+                空欄のまま確定ボタンを押した場合や、文字数が規定値外の場合、データが改竄されている場合に表示されます。<BR>
+                それ以外でこの画面が表示された場合はシステム管理者へ報告してください。';
+
+                err_jmp(0, $message, './initialization.php?page='.$prev, $err_code,$detail);
+                exit();
+            }
+
+            // 管理者アカウント設定
+            $back_btn_flg = 2;
+            $submit = true;
+            $HTML = <<< EOD
+            
+            <script>
+            $(document).ready(function() {
+                // initialize
+                $('input#input_text, textarea#textarea1').characterCounter();
+                
+                // need this!!
+                $('div.input-field span:last-child').remove();
+            });
+            $(document).ready(function(){
+                $('select').formSelect();
+            });
+            </script>
+            <h4 id="green-title">管理者設定</h4>
+            <p>管理者アカウントの設定を行います。(2/2)</p>
+            <p>このページでは管理者のJokenアカウントの設定を行います</p>
+            
+            <form action="./init/account_regist.php" method="POST">
+                <input type="hidden" value="{$name}" name="name">
+                <input type="hidden" value="{$std_num}" name="std_num">
+                <input type="hidden" value="{$address}" name="address">
+                <input type="hidden" value="{$role}" name="role">
+
+                <h5 class="blue-title">管理者アカウント設定</h4>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="name" type="text" class="validate" name="ac_name" data-length="20">
+                        <label for="name">アカウント名(20字以内)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="id" type="text" class="validate" name="ac_id" data-length="10">
+                        <label for="id">アカウントID(10字以内)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="address" type="password" class="validate" name="password">
+                        <label for="password">パスワード</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select name="role">
+                            <option value="" disabled selected>選択してください</option>
+                            <option value="1">会長</option>
+                            <option value="2">副会長</option>
+                            <option value="3">会計</option>
+                            <option value="4">その他幹部陣(各班長含む)</option>
+                            <option value="5">指導教員</option>
+                        </select>
+                        <label>あなたの役職</label>
+                    </div>
+
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="submit">
+                <i class="fas fa-check fa-fw"></i>確定
+                </button>
+            </form>
+            
+            EOD;
+
+        }else{
+
+            $back_btn_flg = 2;
+            $submit = true;
+            $message = 'パラメータが不足しています。';
+            $err_code = '005';
+            $detail = 'POST通信で個人情報の取得に失敗しました。<BR>
+            URLから直接アクセスした場合にこの画面が表示されます。<BR>
+            それ以外でこの画面が表示された場合はシステム管理者へ報告してください。';
+
+            err_jmp(0, $message, './initialization.php?page='.$prev, $err_code,$detail);
+            exit();
+        }
 
     }elseif($page === '7'){
         // 完了

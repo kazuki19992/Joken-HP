@@ -5,6 +5,7 @@
   - 002 : URL取得に失敗(初期設定) url_regist.php
   - 003 : DB名, ホスト取得失敗(初期設定) db_regist.php initialization.php
   - 004 : DBアカウント取得失敗(初期設定) db_regist.php
+  - 005 : 個人情報取得失敗(初期設定) initialize.php?page=6
 - 100 - 199 : ファイルエラー
   - 100 : ファイルオープンエラー
 - 200 : パラメータ異常値
