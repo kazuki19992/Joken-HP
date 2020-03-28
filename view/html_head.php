@@ -28,4 +28,10 @@
     <!-- スマホ用 -->
     <link rel="stylesheet" href="./CSS/style_mobile.css" media="screen and (max-width: 1023px)">
     <link rel="stylesheet" type="text/css" href="./CSS/HamburgerMenu.css">
+
+    <script>
+        $(document).ready(function(){
+            $('.tooltipped').tooltip();
+        });
+    </script>
 </head>

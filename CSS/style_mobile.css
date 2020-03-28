@@ -120,3 +120,6 @@ header {
 #init_back{
     margin-right: 1em;
 }
+#login_left{
+    display: none;
+}

@@ -10,7 +10,7 @@ session_start();    // セッションを開始する
 // ログインしていた場合
 // 既にログイン済みならapps.phpにリダイレクト
 if(!empty($_SESSION['member'])){
-    header('Location: '.SITE_URL.'apps.php');
+    header('Location: '.SITE_URL.'index.php');
     exit;
 }
 
@@ -50,9 +50,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         // ログイン直前にセッションIDを切り替える！！
 
         $_SESSION['member'] = $member;      // ログイン
-        header('Location: '.SITE_URL.'apps.php');   // 会員ページへリダイレクト
+        header('Location: '.SITE_URL.'index.php');   // 会員ページへリダイレクト
         exit;
     }
 }
 
-include_once('./views/login_view.php');     //ビューファイルの読み込み
+include_once('./view/login_view.php');     //ビューファイルの読み込み

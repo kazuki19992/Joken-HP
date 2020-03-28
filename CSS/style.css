@@ -144,3 +144,25 @@ header {
 #init_back{
     margin-right: 1em;
 }
+
+/* PCのみ */
+#login_left{
+    height: 100%;
+    float: left;
+    width: 47.5%;
+    margin-right: 5%;
+    height: 25em;
+}
+#login_p{
+    font-size: 25pt;
+    margin-top: 3em;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #2f2f2f;
+    color: #fff;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#login_btn{
+    margin-right: 1em;
+}

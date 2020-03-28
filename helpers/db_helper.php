@@ -40,7 +40,7 @@ function insert_member_student($dbh, $ac_id, $ac_name, $password, $role, $std_nu
     $password = password_hash($password, PASSWORD_DEFAULT);
     $date = date('Y-m-d H:i:s');
     $sql = "INSERT INTO Account (account_id, account_name, password, icon, role, std_num, std_name, address, created_at) ";
-    $sql .= "VALUE (:account_id, :account_name, :password, :icon, :role, :std_num, :std_name, :address, {$date})";
+    $sql .= "VALUE (:account_id, :account_name, :password, :icon, :role, :std_num, :std_name, :address, '{$date}')";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':account_id', $ac_id, PDO::PARAM_STR);

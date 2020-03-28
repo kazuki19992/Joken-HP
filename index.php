@@ -1,5 +1,6 @@
 <?php
     require_once('./config.php');
+    
     // ログイン中か確認する
     if(empty($_SESSION['member'])){
         // 未ログイン
