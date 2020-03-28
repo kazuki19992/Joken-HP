@@ -32,15 +32,25 @@ function student_number_exists($dbh, $student_number){
     }
 }
 
-function insert_member_data($dbh, $name, $student_number, $password){
+function insert_member_student($dbh, $ac_id, $ac_name, $password, $role, $std_num, $std_name, $address){
+
+    //初期アイコン
+    $icon = './IMG/init_icon.png';
 
     $password = password_hash($password, PASSWORD_DEFAULT);
     $date = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO members (name, student_number, password, created) VALUE (:name, :student_number, :password, '{$date}')";
+    $sql = "INSERT INTO Account (account_id, account_name, password, icon, role, std_num, std_name, address, created_at) ";
+    $sql .= "VALUE (:account_id, :account_name, :password, :icon, :role, :std_num, :std_name, :address, {$date})";
+
     $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-    $stmt->bindValue(':student_number', $student_number, PDO::PARAM_STR);
+    $stmt->bindValue(':account_id', $ac_id, PDO::PARAM_STR);
+    $stmt->bindValue(':account_name', $ac_name, PDO::PARAM_STR);
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    $stmt->bindValue(':icon', $icon, PDO::PARAM_STR);
+    $stmt->bindValue(':role', $role, PDO::PARAM_STR);
+    $stmt->bindValue(':std_num', $std_num, PDO::PARAM_STR);
+    $stmt->bindValue(':std_name', $std_name, PDO::PARAM_STR);
+    $stmt->bindValue(':address', $address, PDO::PARAM_STR);
     if($stmt->execute()){
         return TRUE;
     }else{

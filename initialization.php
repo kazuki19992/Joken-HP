@@ -159,11 +159,11 @@ if(isset($_GET['page'])) {
                 <div class="input-field col s12">
                     <select name="role">
                         <option value="" disabled selected>選択してください</option>
-                        <option value="1">会長</option>
+                        <option value="3">会長</option>
                         <option value="2">副会長</option>
-                        <option value="3">会計</option>
+                        <option value="1">会計</option>
                         <option value="4">その他幹部陣(各班長含む)</option>
-                        <option value="5">指導教員</option>
+                        <option value="6">指導教員</option>
                     </select>
                     <label>あなたの役職</label>
                 </div>
@@ -255,18 +255,6 @@ if(isset($_GET['page'])) {
                         <input id="address" type="password" class="validate" name="password">
                         <label for="password">パスワード</label>
                     </div>
-                    <div class="input-field col s12">
-                        <select name="role">
-                            <option value="" disabled selected>選択してください</option>
-                            <option value="1">会長</option>
-                            <option value="2">副会長</option>
-                            <option value="3">会計</option>
-                            <option value="4">その他幹部陣(各班長含む)</option>
-                            <option value="5">指導教員</option>
-                        </select>
-                        <label>あなたの役職</label>
-                    </div>
-
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="submit">
                 <i class="fas fa-check fa-fw"></i>確定
