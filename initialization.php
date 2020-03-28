@@ -120,22 +120,47 @@ if(isset($_GET['page'])) {
         
         EOD;
     }elseif($page === '5'){
-        header('Location: ./initialization.php?page=6');
-        exit();
+        // 管理者設定
         $back_btn_flg = 2;
         $submit = true;
         $HTML = <<< EOD
-        <h4 id="green-title">管理者設定</h4>
-        <p>次に、管理者の設定を行います。</p>
         
-        <form action="./init/db_regist.php?mode=account" method="POST">
-            <div class="input-field">
-                <input id="site_url" type="text" class="validate" name="name">
-                <label for="site_url">あなたのお名前</label>
-            </div>
-            <div class="input-field">
-                <input id="password" type="password" class="validate" name="password">
-                <label for="password">パスワード</label>
+        <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+        </script>
+        <h4 id="green-title">管理者設定</h4>
+        <p>管理者アカウントの設定を行います。(1/2)</p>
+        <p>個人情報はサークル運営にのみ使用するものとします。</p>
+        
+        <form action="./initialization.php?page=6" method="POST">
+        <h5 class="blue-title">個人情報設定</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="site_url" type="text" class="validate" name="name">
+                    <label for="site_url">名前</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password">パスワード</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="site_url" type="text" class="validate" name="address">
+                    <label for="site_url">現住所</label>
+                </div>
+                <div class="input-field col s12">
+                    <select name="role">
+                        <option value="" disabled selected>選択してください</option>
+                        <option value="1">会長</option>
+                        <option value="2">副会長</option>
+                        <option value="3">会計</option>
+                        <option value="4">その他幹部陣(各班長含む)</option>
+                        <option value="5">指導教員</option>
+                    </select>
+                    <label>あなたの役職</label>
+                </div>
+
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="submit">
             <i class="fas fa-check fa-fw"></i>確定
@@ -144,6 +169,8 @@ if(isset($_GET['page'])) {
         
         EOD;
     }elseif($page === '6'){
+
+    }elseif($page === '7'){
         // 完了
         $back_btn_flg = 0;
         $submit = true;

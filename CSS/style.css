@@ -85,6 +85,12 @@ header {
     background: transparent;/*背景透明に*/
     border-left: solid 5px rgb(38, 153, 4);/*左線*/
 }
+.green-title {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px rgb(38, 153, 4);/*左線*/
+}
 
 /* 共通 */
 #blue-title {
@@ -93,9 +99,21 @@ header {
     background: transparent;/*背景透明に*/
     border-left: solid 5px #001E43;/*左線*/
 }
+.blue-title {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #001E43;/*左線*/
+}
 
 /* 共通 */
 #orange-title {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #ff9800;/*左線*/
+}
+.orange-title {
     padding: 0.25em 0.5em;/*上下 左右の余白*/
     color: #494949;/*文字色*/
     background: transparent;/*背景透明に*/

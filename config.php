@@ -1,14 +1,35 @@
 <?php
 
-define('DSN', 'mysql:dbname=team3_apps;host=localhost;charset=utf8');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-// define('DB_PASSWORD', 'c56O9NS2rR8t');
+$filename = './helpers/DB_DSN';
+$fp = fopen($filename, 'r');
+if($fp = FALSE){
+    header('Location: ./initialize.php');
+    exit();
+}
+$dsn = fgets($fp);
+define('DSN', $dsn);
+fclose($fp);
+
+$filename = './helpers/DB_ACCOUNT';
+$fp = fopen($filename, 'r');
+if($fp = FALSE){
+    header('Location: ./initialize.php');
+    exit();
+}
+$db_user = fgets($fp);
+$db_password = fgets($fp);
+define('DB_USER', $db_user);
+define('DB_PASSWORD', $db_password);
+fclose($fp);
 
 $filename = './helpers/SITE_URL';
 $fp = fopen($filename, 'r');
-define('SITE_URL', fgets($fp));
-// define('SITE_URL', 'http://3.112.191.94/Team3/');
+if($fp = FALSE){
+    header('Location: ./initialize.php');
+    exit();
+}
+$site_url = fgets($fp);
+define('SITE_URL', $site_url);
 
 error_reporting(E_ALL & ~E_NOTICE);     // E_NOTICE以外のエラーをすべて出力する
 // 開発時はerror_reporting(E_ALL & ~E_NOTICE)としてE_NOTICE以外のエラーをすべて出力し、
