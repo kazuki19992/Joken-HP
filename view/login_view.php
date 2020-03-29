@@ -2,10 +2,10 @@
     require('./view/html_head.php');
 ?>
 
-<body>
+<body id="login_body">
     <div id="contents">
         <h4 id="green-title">おかえりなさい</h4>
-        <div id="left">
+        <div id="login-left">
             <br>
             <h5 id="blue-title">アカウントを持っていない場合は？</h5>
             <p>はじめまして。アカウントを持っていない方は<a href="./signin.php">こちら</a>でアカウント登録が可能です。<BR>
