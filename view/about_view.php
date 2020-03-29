@@ -50,7 +50,7 @@ require('./view/html_head.php');
                     <p class="card_p">当サイトのソースコードはGitHubにて公開されており、誰でも自由に使用することが可能です。詳しくは下のリンクよりGitHubリポジトリをご確認ください。</p>
                 </div>
                 <div class="card-action">
-                <a href="https://github.com/kazuki19992/Joken-HP" class="waves-effect waves-teal btn-flat" target="_blank" rel="noopener noreferrer"><span  class="light-blue-text text-darken-4"><i class="fab fa-github fa-fw"></i> GitHubリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></span></a>
+                <a href="https://github.com/kazuki19992/Joken-HP" class="waves-effect waves btn-flat" target="_blank" rel="noopener noreferrer"><span  class="light-blue-text text-darken-4"><i class="fab fa-github fa-fw"></i> GitHubリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></span></a>
                 </div>
             </div>
 
