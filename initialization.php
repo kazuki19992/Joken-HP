@@ -126,15 +126,15 @@ if(isset($_GET['page'])) {
         $HTML = <<< EOD
         
         <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
         $(document).ready(function() {
             // initialize
             $('input#input_text, textarea#textarea1').characterCounter();
             
             // need this!!
             $('div.input-field span:last-child').remove();
-        });
-        $(document).ready(function(){
-            $('select').formSelect();
         });
         </script>
         <h4 id="green-title">管理者設定</h4>
@@ -156,17 +156,15 @@ if(isset($_GET['page'])) {
                     <input id="address" type="text" class="validate" name="address">
                     <label for="address">現住所</label>
                 </div>
-                <div class="input-field col s12">
-                    <select name="role">
-                        <option value="" disabled selected>選択してください</option>
-                        <option value="3">会長</option>
-                        <option value="2">副会長</option>
-                        <option value="1">会計</option>
-                        <option value="4">その他幹部陣(各班長含む)</option>
-                        <option value="6">指導教員</option>
-                    </select>
-                    <label>あなたの役職</label>
-                </div>
+                <label>あなたの役職</label>
+                <select name="role" class="browser-default">
+                    <option value="" disabled selected>選択してください</option>
+                    <option value="3">会長</option>
+                    <option value="2">副会長</option>
+                    <option value="1">会計</option>
+                    <option value="4">その他幹部陣(各班長含む)</option>
+                    <option value="6">指導教員</option>
+                </select>
 
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="submit">

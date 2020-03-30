@@ -49,7 +49,7 @@
         <BR>
         <p class="nv_cts3"><i class="fas fa-tools fa-fw"></i> 管理ツール</p>
         <a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="ユーザー権限の変更や強制退会などを行うことが可能です"> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>
-        <a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="お知らせの投稿が可能です"> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>
+        <a class="nv_Link3 tooltipped waves-effect waves-light" href="newspost.php" data-position="right" data-tooltip="お知らせの投稿が可能です"> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>
         <a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="アンケートを開始することができます(機能実装予定)"> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>
         <a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="サイトURLの変更やデータベースの設定などサイトの設定が可能です"> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>
         <a class="nv_Link3 tooltipped waves-effect waves-light" href="./initialization.php" data-position="right" data-tooltip="デバッグ用(本番環境では表示しない)"> <i class="fas fa-power-off fa-fw"></i> 初期設定 </a>

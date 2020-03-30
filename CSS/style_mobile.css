@@ -123,3 +123,21 @@ header {
 #login-left{
     display: none;
 }
+
+/* 共通 */
+.post {
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #fff;
+}
+.post:after {
+    content: '';
+    display: block;
+    margin-top: 2px;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #fff;
+}
+
+/* 共通 */
+#post_op .row{
+    margin-bottom: 0.5em !important;
+}
