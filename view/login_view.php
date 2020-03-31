@@ -16,7 +16,7 @@
         </div>
         <div id="right">
             
-            <form action="./init/db_regist.php?mode=account" method="POST">
+            <form action="" method="POST">
                 <p>IDとパスワードを入力してログインしてください。</p>
                 <div class="input-field">
                     <input id="account_id" type="text" class="validate" name="ac_id">

@@ -16,18 +16,18 @@ if(!empty($_SESSION['member'])){
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    $student_number = get_post('student_number');
+    $account_id = get_post('ac_id');
     $password = get_post('password');
 
     $dbh = get_db_connect();    // DB接続
     $errs = array();
 
-    if(!student_number_exists($dbh, $student_number)){
-        $errs['student_number'] = 'この学生番号は登録されていません';
+    if(!id_exists($dbh, $ac_id)){
+        $errs['student_number'] = 'このIDは登録されていません';
     // }elseif(!filter_var($student_number, FILTER_VALIDATE_student_number)){
     //     $errs['student_number'] = 'メールアドレスの形式が正しくありません';
-    }elseif(!check_words($student_number, 10)){
-        $errs['student_number'] = '学生番号欄は必須、10文字以内で入力してください';
+    }elseif(!check_words($ac_id, 10)){
+        $errs['student_number'] = 'ID欄は必須、10文字以内で入力してください';
     }
 
     if(!check_words($password, 50)) {
@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     // メールアドレスとパスワードが一致するか検証する
     if(!check_words($password, 50)){
         $errs['password'] = 'パスワードは必須、50文字以内で入力してください';
-    }elseif(!$member = select_member($dbh, $student_number, $password)){
+    }elseif(!$member = select_member_acId($dbh, $ac_id, $password)){
         $errs['password'] = 'パスワードと学生番号が正しくありません';
     }
     

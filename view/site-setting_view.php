@@ -12,7 +12,7 @@ require('./view/html_head.php');
 
             <!-- URL設定カード -->
             <div class="card grey lighten-3 hoverable">
-                <form action="" method="post">
+                <form action="./site-setting.php?mode=site_url" method="post">
                     <div class="card-content">
                         <span class="card-title">URL設定</span>
                         <p>サイトのルートURLを変更します</p>
@@ -34,7 +34,7 @@ require('./view/html_head.php');
 
             <!-- DB_DSN設定カード -->
             <div class="card grey lighten-3 hoverable">
-                <form action="" method="post">
+                <form action="./site-setting.php?mode=dsn" method="post">
                     <div class="card-content">
                         <span class="card-title">データベース設定(DSN)</span>
                         <p>データベースのホスト名とデータベース名を変更します</p>
@@ -60,7 +60,7 @@ require('./view/html_head.php');
 
         <div id="right-padding">
             <div class="card grey lighten-3 hoverable">
-                <form action="" method="post">
+                <form action="./site-setting.php?mode=account" method="post">
                     <div class="card-content">
                         <span class="card-title">データベース設定(アカウント)</span>
                         <p>データベースにアクセスするユーザー名とパスワードを変更します</p>
