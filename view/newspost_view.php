@@ -51,7 +51,7 @@ require('./view/html_head.php');
                         </select>
                         <label>公開範囲</label>
                     </div>
-                    <a class="waves-effect waves-light btn-large modal-trigger col s1" href="#modal1"><i class="far fa-question-circle fa-fw"></i></a>
+                    <a class="waves-effect waves-light btn-large modal-trigger col s1 tooltipped" data-position="bottom" href="#modal1" data-tooltip="Markdownの書き方"><i class="far fa-question-circle fa-fw"></i></a>
                 </div>
                 <!-- <i class="fas fa-info-circle fa-fw"></i> Markdown(マークダウン)記法がわからない方は<a href="https://qiita.com/Minalinsky_1911/items/b684cfabe0f2fde0c67b" target="_blank">こちら！[Qiita]<i class="fas fa-external-link-alt fa-fw"></i></a> -->
                 <?php

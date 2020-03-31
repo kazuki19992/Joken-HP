@@ -4,7 +4,7 @@
         <h4 class="green-title">Markdownの書き方</h4>
         <h5 class="blue-title">Markdownとは？</h5>
         <p>HTMLより簡単に記述できる軽量マークアップ言語です！詳しくはggってね！拡張子は<code>.md</code>です！</p>
-        <h5 class="blue-title">タイトル</h5>
+        <h5 class="blue-title">見出し</h5>
         <pre>
 # h1
 ## h2
