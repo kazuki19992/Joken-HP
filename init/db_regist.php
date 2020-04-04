@@ -40,10 +40,16 @@ if(isset($_GET['mode'])){
         if($_POST['ac_name']){
             $ac_name = $_POST['ac_name'];
             $password = $_POST['password'];
-            $data = $ac_name."\n".$password;
-            if(file_put_contents('../helpers/DB_ACCOUNT', $data, LOCK_EX) !== false){
-                header('Location: ../initialization.php?page=5');
-                exit();
+            if(file_put_contents('../helpers/DB_ACCOUNT_NAME', $ac_name, LOCK_EX) !== false){
+                if(file_put_contents('../helpers/DB_ACCOUNT_PASS', $password, LOCK_EX) !== false){
+                    header('Location: ../initialization.php?page=5');
+                    exit();
+                }else{
+                    $message = '登録処理に失敗しました';
+                    $err_code = '100';
+                    $detail = 'ファイルオープンに失敗しました。<BR>時間を空けてリトライしてください。';
+                    err_jmp(1, $message, './initialization.php?page=4', $err_code,$detail);
+                }
             }else{
                 $message = '登録処理に失敗しました';
                 $err_code = '100';
