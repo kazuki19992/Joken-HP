@@ -21,10 +21,22 @@
                 <div class="input-field">
                     <input id="account_id" type="text" class="validate" name="ac_id">
                     <label for="account_id">ID</label>
+                    <?php
+                        if(isset($errs['ac_id'])){
+                            $errmsg['ac_id'] = '<p><i class="fas fa-exclamation-triangle fa-fw"></i>'.$errs['ac_id'].'</p>';
+                            echo $errmsg['ac_id'];
+                        }
+                    ?>
                 </div>
                 <div class="input-field">
                     <input id="password" type="password" class="validate" name="password">
                     <label for="password">パスワード</label>
+                    <?php
+                        if(isset($errs['password'])){
+                            $errmsg['password'] = '<p><i class="fas fa-exclamation-triangle fa-fw"></i>'.$errs['password'].'</p>';
+                            echo $errmsg['password'];
+                        }
+                    ?>
                 </div>
                 <button class="btn waves-effect waves-light" id="login_btn" type="submit" name="submit">
                     <i class="fas fa-sign-in-alt fa-fw"></i> ログイン

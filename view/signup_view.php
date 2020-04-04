@@ -1,6 +1,10 @@
 <?php
     require('./view/html_head.php');
+    var_dump(SITE_URL);
+    var_dump($location);
 ?>
+
+
 
 <body>
     <div id="contents">

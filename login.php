@@ -8,7 +8,7 @@ require_once('./helpers/extra_helper.php');
 session_start();    // セッションを開始する
 
 // ログインしていた場合
-// 既にログイン済みならapps.phpにリダイレクト
+// 既にログイン済みならindex.phpにリダイレクト
 if(!empty($_SESSION['member'])){
     header('Location: '.SITE_URL.'index.php');
     exit;
@@ -23,11 +23,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $errs = array();
 
     if(!id_exists($dbh, $ac_id)){
-        $errs['student_number'] = 'このIDは登録されていません';
+        $errs['ac_id'] = 'このIDは登録されていません';
     // }elseif(!filter_var($student_number, FILTER_VALIDATE_student_number)){
     //     $errs['student_number'] = 'メールアドレスの形式が正しくありません';
     }elseif(!check_words($ac_id, 10)){
-        $errs['student_number'] = 'ID欄は必須、10文字以内で入力してください';
+        $errs['ac_id'] = 'ID欄は必須、10文字以内で入力してください';
     }
 
     if(!check_words($password, 50)) {
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!check_words($password, 50)){
         $errs['password'] = 'パスワードは必須、50文字以内で入力してください';
     }elseif(!$member = select_member_acId($dbh, $ac_id, $password)){
-        $errs['password'] = 'パスワードと学生番号が正しくありません';
+        $errs['password'] = 'パスワードとログインIDが正しくありません';
     }
     
     // ログインする

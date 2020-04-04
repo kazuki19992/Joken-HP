@@ -58,7 +58,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $errs['pass'] = 'パスワードを入力してください';
     }
     
-    
+    if(id_exists($dbh, $ac_id)){
+        $errs['ac_id'] = '入力されたID('.$ac_id.')は既に登録されています';
+    }
 
 
 
@@ -66,7 +68,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($errs)){
         if(insert_member_student($dbh, $ac_id, $ac_name, $password, $role, $std_num, $name, $address)){
             // データの挿入
-            header('Location: '.SITE_URL.'login.php');  //ログイン画面へ遷移
+            // header($location);  //ログイン画面へ遷移
+            header('Location: '.SITE_URL.'login.php');
             exit;
         }
         $errs['password'] = '登録に失敗しました';

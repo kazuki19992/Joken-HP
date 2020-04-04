@@ -30,7 +30,6 @@ fclose($fp);
 
 define('DB_USER', $db_user);
 define('DB_PASSWORD', $db_password);
-fclose($fp);
 
 $filename = './helpers/SITE_URL';
 $fp = fopen($filename, 'r');
