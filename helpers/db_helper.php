@@ -50,7 +50,7 @@ function id_exists($dbh, $id){
 function insert_member_student($dbh, $ac_id, $ac_name, $password, $role, $std_num, $std_name, $address){
 
     //初期アイコン
-    $icon = './IMG/init_icon.png';
+    $icon = SITE_URL.'IMG/user_icon/init_icon.png';
 
     $password = password_hash($password, PASSWORD_DEFAULT);
     $date = date('Y-m-d H:i:s');

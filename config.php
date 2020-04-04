@@ -10,14 +10,24 @@ $dsn = fgets($fp);
 define('DSN', $dsn);
 fclose($fp);
 
-$filename = './helpers/DB_ACCOUNT';
+$filename = './helpers/DB_ACCOUNT_NAME';
 $fp = fopen($filename, 'r');
 if($fp === FALSE){
     header('Location: ./initialization.php');
     exit();
 }
 $db_user = fgets($fp);
+fclose($fp);
+
+$filename = './helpers/DB_ACCOUNT_PASS';
+$fp = fopen($filename, 'r');
+if($fp === FALSE){
+    header('Location: ./initialization.php');
+    exit();
+}
 $db_password = fgets($fp);
+fclose($fp);
+
 define('DB_USER', $db_user);
 define('DB_PASSWORD', $db_password);
 fclose($fp);
