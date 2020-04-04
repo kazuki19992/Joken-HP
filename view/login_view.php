@@ -8,11 +8,8 @@
         <div id="login-left">
             <br>
             <h5 id="blue-title">アカウントを持っていない場合は？</h5>
-            <p>はじめまして。アカウントを持っていない方は<a href="./signin.php">こちら</a>でアカウント登録が可能です。<BR>
+            <p>はじめまして。アカウントを持っていない方は<a href="./signup.php">こちら</a>でアカウント登録が可能です。<BR>
             アカウント登録を行うとJokenの各機能にアクセスすることが可能です。</p>
-            <a class="waves-effect waves-green btn-flat">
-                <i class="fas fa-user-plus fa-fw"></i> 新規会員登録(一般)を行う
-            </a>
         </div>
         <div id="right">
             

@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $errs['pass'] = 'パスワードを入力してください';
     }
     
-    if(id_exists($dbh, $ac_id)){
+    if(acId_exists($dbh, $ac_id)){
         $errs['ac_id'] = '入力されたID('.$ac_id.')は既に登録されています';
     }
 

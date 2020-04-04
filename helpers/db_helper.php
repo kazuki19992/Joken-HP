@@ -17,22 +17,7 @@ function get_db_connect(){
     return $dbh;
 }
 
-function student_number_exists($dbh, $student_number){
-    
-    $sql = "SELECT COUNT(id) FROM members where student_number = :student_number";
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':student_number', $student_number, PDO::PARAM_STR);
-    $stmt->execute();
-    $count = $stmt->fetch(PDO::FETCH_ASSOC);    // 結果を配列で取得する
-    if($count['COUNT(id)'] > 0){
-        //件数を判定
-        return TRUE;
-    }else{
-        return FALSE;
-    }
-}
-
-function id_exists($dbh, $ac_id){
+function acId_exists($dbh, $ac_id){
     
     $sql = "SELECT COUNT(id) FROM Account where account_id = :account_id";
     $stmt = $dbh->prepare($sql);
@@ -83,26 +68,7 @@ function update_member_name($dbh, $name, $id){
         return FALSE;
     }
 }
-// メールアドレスとパスワードが一致するか調べる
-function select_member($dbh, $student_number, $password){
-
-    $sql = 'SELECT * FROM members WHERE student_number = :student_number LIMIT 1'; // メールアドレスが一致するデータを取得する
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':student_number', $student_number, PDO::PARAM_STR);
-    $stmt->execute();
-    if($stmt->rowCount() > 0){
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(password_verify($password, $data['password'])){
-            // パスワードを検証する
-
-            return $data;   // 会員データを渡す
-        }else{
-            return FALSE;
-        }
-        return FALSE;
-    }
-}
-
+// IDとパスワードが一致するか調べる
 function select_member_acId($dbh, $account_id, $password){
 
     $sql = 'SELECT * FROM Account WHERE account_id = :account_id LIMIT 1'; // アカウントのIDが一致するレコードをさがす

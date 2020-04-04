@@ -10,7 +10,9 @@ session_start();    // セッションを開始する
 // ログインしていた場合
 // 既にログイン済みならindex.phpにリダイレクト
 if(!empty($_SESSION['member'])){
-    header('Location: '.SITE_URL.'index.php');
+    // header('Location: '.SITE_URL.'index.php');
+    var_dump($_SESSION['member']);
+    echo session_id();
     exit;
 }
 
@@ -22,11 +24,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $dbh = get_db_connect();    // DB接続
     $errs = array();
 
-    if(!id_exists($dbh, $ac_id)){
+    if(!acId_exists($dbh, $account_id)){
         $errs['ac_id'] = 'このIDは登録されていません';
     // }elseif(!filter_var($student_number, FILTER_VALIDATE_student_number)){
     //     $errs['student_number'] = 'メールアドレスの形式が正しくありません';
-    }elseif(!check_words($ac_id, 10)){
+    }elseif(!check_words($account_id, 10)){
         $errs['ac_id'] = 'ID欄は必須、10文字以内で入力してください';
     }
 
@@ -38,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     // メールアドレスとパスワードが一致するか検証する
     if(!check_words($password, 50)){
         $errs['password'] = 'パスワードは必須、50文字以内で入力してください';
-    }elseif(!$member = select_member_acId($dbh, $ac_id, $password)){
+    }elseif(!$member = select_member_acId($dbh, $account_id, $password)){
         $errs['password'] = 'パスワードとログインIDが正しくありません';
     }
     
