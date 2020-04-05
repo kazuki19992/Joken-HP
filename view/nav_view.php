@@ -44,20 +44,31 @@
         ?>
         <BR>
         <p class="nv_cts2"><i class="fas fa-meteor fa-fw"></i> その他</p>
-        <a class="nv_Link2 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="オリジナルのWebアプリケーションを公開できます"> <i class="fas fa-laptop-code"></i> WebAppsを公開する </a>
+        <?php
+            // ログイン中か確認する
+            if(empty($_SESSION['member'])){
+                // ログインしていない
+                echo('<a class="nv_Link2 tooltipped waves-effect waves-light" href="https://www.ce.nihon-u.ac.jp/" target="_blank" data-position="right" data-tooltip="大学からの広報はこちら"> <i class="fas fa-graduation-cap fa-fw"></i> 日本大学工学部HP <i class="fas fa-external-link-alt fa-fw"></i></a>');
+            }else{
+                echo('<a class="nv_Link2 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="オリジナルのWebアプリケーションを公開できます"> <i class="fas fa-laptop-code fa-fw"></i> WebAppsを公開する </a>');
+            }
+        ?>
+        
         <a class="nv_Link2 tooltipped waves-effect waves-light" href="./about.php" data-position="right" data-tooltip="サイトについての情報を掲載しています"> <i class="fas fa-info-circle fa-fw"></i> 当サイトについて </a>
         <a class="nv_Link2 tooltipped waves-effect waves-light" href="https://github.com/kazuki19992/Joken-HP" target="_blank" rel="noopener noreferrer" data-position="right" data-tooltip="ここから開発に携われます"> <i class="fab fa-github fa-fw"></i> 当サイトのリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></a>
         <BR>
         <?php
-            if($member['role'] >= 1 || $member['role'] <= 6){
-                $nav_opt = '<p class="nv_cts3"><i class="fas fa-tools fa-fw"></i> 管理ツール</p>';
-                $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="newspost.php" data-position="right" data-tooltip="お知らせの投稿が可能です"> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>';
-                $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="アンケートを開始することができます(機能実装予定)"> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>';
-                if($member['role'] !== '5'){
-                    $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="ユーザー権限の変更や強制退会などを行うことが可能です"> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>';
-                    $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./site-setting.php" data-position="right" data-tooltip="サイトURLの変更やデータベースの設定などサイトの設定が可能です"> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>';
+            if(!empty($_SESSION['member'])){
+                if($member['role'] >= 1 || $member['role'] <= 6){
+                    $nav_opt = '<p class="nv_cts3"><i class="fas fa-tools fa-fw"></i> 管理ツール</p>';
+                    $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="newspost.php" data-position="right" data-tooltip="お知らせの投稿が可能です"> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>';
+                    $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="アンケートを開始することができます(機能実装予定)"> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>';
+                    if($member['role'] !== '5'){
+                        $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./edit-users.php" data-position="right" data-tooltip="ユーザー権限の変更や強制退会などを行うことが可能です"> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>';
+                        $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./site-setting.php" data-position="right" data-tooltip="サイトURLの変更やデータベースの設定などサイトの設定が可能です"> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>';
+                    }
+                    echo $nav_opt;
                 }
-                echo $nav_opt;
             }
         ?>
         

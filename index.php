@@ -17,10 +17,10 @@
     }else{
         $member = $_SESSION['member'];
         // ログイン中
-        $ac_card = '<span class="card-title">ユーザー名</span>';
+        $ac_card = '<span class="card-title"><strong>'.html_escape($member['account_name']).'</strong></span>';
         $ac_card .= '<p>アカウント情報の表示</p>';
         $ac_card .= '</div><div class="card-action">';
-        $ac_card .= '<a href="#" class="waves-effect waves btn-flat"><span  class="light-blue-text text-darken-4"><i class="fas fa-user-cog fa-fw"></i> アカウント設定</span></a>';
+        $ac_card .= '<a href="./mypage.php" class="waves-effect waves btn-flat"><span  class="light-blue-text text-darken-4"><i class="fas fa-user-cog fa-fw"></i> マイページ</span></a>';
 
     }
 

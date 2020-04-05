@@ -10,9 +10,9 @@ session_start();    // セッションを開始する
 // ログインしていた場合
 // 既にログイン済みならindex.phpにリダイレクト
 if(!empty($_SESSION['member'])){
-    // header('Location: '.SITE_URL.'index.php');
-    var_dump($_SESSION['member']);
-    echo session_id();
+    header('Location: '.SITE_URL.'index.php');
+    // var_dump($_SESSION['member']);
+    // echo session_id();
     exit;
 }
 
