@@ -1,5 +1,6 @@
 <?php
 
+
 if(isset($_POST['errcode'])){
     $errmsg = $_POST['errmsg'];
     $prev = $_POST['prev'];
