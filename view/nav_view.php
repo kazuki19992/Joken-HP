@@ -38,7 +38,7 @@
                 echo('<a class="nv_Link1 tooltipped waves-effect waves-light" href="./signup.php" data-position="right" data-tooltip="ここからアカウント登録が可能です(サークル所属の学生/OBのみ)"> <i class="fas fa-user-plus fa-fw"></i> アカウント登録 </a>');
                 echo('<a class="nv_Link1 tooltipped waves-effect waves-light" href="./login.php" data-position="right" data-tooltip="ログインはこちら！"> <i class="fas fa-sign-in-alt fa-fw"></i> ログイン </a>');
             }else{
-                echo('<a class="nv_Link1 tooltipped waves-effect waves-light"" href="./settings.php" data-position="right" data-tooltip="アカウント設定などもこのページから行えます"> <i class="fas fa-user-cog fa-fw"></i> マイページ </a>');
+                echo('<a class="nv_Link1 tooltipped waves-effect waves-light"" href="./mypage.php" data-position="right" data-tooltip="アカウント設定などもこのページから行えます"> <i class="fas fa-user-cog fa-fw"></i> マイページ </a>');
                 echo('<a class="nv_Link1 tooltipped waves-effect waves-light"" href="./logout.php" data-position="right" data-tooltip="ここからログアウトが可能です"> <i class="fas fa-sign-out-alt fa-fw" data-position="right" data-tooltip="ここからログアウトできます"></i> ログアウト </a>');
             }
         ?>

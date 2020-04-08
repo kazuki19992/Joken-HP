@@ -11,14 +11,14 @@
             <h4 id="green-title">マイページ</h4>
             <div class="card horizontal grey lighten-3 hoverable">
                 <div class="card-image">
-                    <img src="https://lh3.googleusercontent.com/9OeU3wRuKenumwu2N5o72Y6b40Q2LS-tHmXGPOhN042Pmg-IcCMb9W-e97CoB06UeQ=w200-h200-rwa">
+                    <img src="<?php echo SITE_URL.$member['icon'];?>">
                 </div>
                 <div class="card-stacked">
                     <div class="card-title" style="padding-left: 0.5em;">
-                        UserName
+                        <?php echo $member['account_name']; ?>
                     </div>
                     <div class="card-content">
-                        <p>309999 / 会員の名前 / 会長</p>
+                        <p><?php echo $member['std_num']." / ".$member['std_name']." / 会長";?></p>
                     </div>
                     <div class="card-action">
                         <a href="" class="waves-effect waves btn-flat" ><span  class="light-blue-text text-darken-4"><i class="fas fa-user-edit fa-fw"></i> プロフィールを変更する</span></a>
