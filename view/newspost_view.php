@@ -20,7 +20,7 @@ require('./view/html_head.php');
     <div id="contents" >
         <div id="left">
             <h4 class="green-title">お知らせ投稿</h4>
-            <form action="./init/db_regist.php?mode=account" method="POST" name="contentspost">
+            <form action="./txt2md.php?mode=news" method="POST" name="contentspost">
                 <div id="post_op" class="row">
                     <div class="input-field col s10">
                         <input id="news_title" type="text" class="validate" name="news_title">
@@ -34,7 +34,7 @@ require('./view/html_head.php');
                             <div class="waves-effect waves-light btn-large orange darken-4 waves-light tooltipped col s12" 
                             data-position="bottom" 
                             data-html="true" 
-                            data-tooltip="読込可能ファイル: <i class='fab fa-markdown'></i> .txt .html<BR>※読み込み前にリロードを行ってください<BR>※読み込み後はテキストエリア上でカーソル移動を行うとプレビューされます">
+                            data-tooltip="読込可能ファイル: <i class='fab fa-markdown'></i> .txt<BR>※読み込み前にリロードを行ってください<BR>※読み込み後はテキストエリア上でカーソル移動を行うとプレビューされます">
                                 <span><i class="fab fa-markdown fa-fw"></i> 原稿を開く</span>
                                 <input type="file" id="selfile" accept="text/plain, .md">
                             </div>
