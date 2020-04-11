@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!check_words($name, 20)){
         $errs['name'] = '名前入力欄は必須';
     }
-    if(!check_words($std_num, 6)){
+    if(!check_words($std_num, 8)){
         $errs['std_num'] = '学生番号欄は必須';
     }
     if(!check_words($address, 100)){

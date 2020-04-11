@@ -34,8 +34,8 @@
             </div>
             <div class="row">
                 <div class="input-field col s6" id="std_num_input">
-                    <input id="std_num" type="text" class="validate" name="std_num" data-length="6">
-                    <label for="std_num">学生番号(学部生:6桁, 院生:5桁)</label>
+                    <input id="std_num" type="text" class="validate" name="std_num" data-length="8">
+                    <label for="std_num">学生番号(u, gを含めない5, 6, 8桁の学生番号)</label>
                     <?php
                         if(isset($errs['std_num'])){
                             $errmsg['std_num'] = '<p><i class="fas fa-exclamation-triangle fa-fw"></i>'.$errs['std_num'].'</p>';
