@@ -9,6 +9,8 @@ require('./helpers/extra_helper.php');
 session_start();
 if(!empty($_SESSION['member'])){
     $member = $_SESSION['member'];
+}else{
+    header('Location: '.SITE_URL.'login.php');
 }
 
 require('./view/mypage_view.php');
