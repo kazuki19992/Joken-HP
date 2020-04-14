@@ -89,9 +89,15 @@
                     ?>
                 </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="submit">
-            <i class="fas fa-check fa-fw"></i>確定
-            </button>
+
+            <div id="login_btns">
+                <a class="waves-effect waves-teal btn-flat grey lighten-2" href="./index.php" id="login_cancel">
+                    <i class="fas fa-arrow-circle-left fa-fw"></i>キャンセル
+                </a>
+                <button class="btn waves-effect waves-light" type="submit" name="submit">
+                    <i class="fas fa-check fa-fw"></i>確定
+                </button>
+            </div>
         </form>
     </div>
     <script src="./JS/signup_functions.js"></script>
