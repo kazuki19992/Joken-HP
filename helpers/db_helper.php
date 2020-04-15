@@ -88,6 +88,22 @@ function select_member_acId($dbh, $account_id, $password){
     }
 }
 
+// 役職(属性)IDから属性名を取得
+function get_role($dbh, $role_id){
+    $sql = 'SELECT role FROM role WHERE role_id = :role_id LIMIT 1';
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':role_id', $role_id, PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(isset($data)){
+            return $data;
+        }else{
+            return FALSE;
+        }
+    }
+}
+
 function post_store($dbh){
     if(isset($_FILES['img'])){
         $img = $_FILES['img'];
