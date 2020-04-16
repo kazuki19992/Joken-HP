@@ -23,7 +23,7 @@ require('./view/html_head.php');
             <form action="./txt2md.php?mode=news" method="POST" name="contentspost">
                 <div id="post_op" class="row">
                     <div class="input-field col s10">
-                        <input id="news_title" type="text" class="validate" name="news_title">
+                        <input id="news_title" type="text" class="validate" name="title">
                         <label for="news_title">タイトルを入力(50字以内)</label>
                     </div>
                     <button class="btn-large waves-effect waves-light col s2" type="submit" name="action">投稿
@@ -41,7 +41,7 @@ require('./view/html_head.php');
                         </div>
                     </div>
                     <div class="input-field col s8">
-                        <select>
+                        <select name="view_range">
                             <option value="" disabled selected>選択してください</option>
                             <option value="0">外部</option>
                             <option value="1">Jokenアカウント保持者</option>

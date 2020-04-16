@@ -14,8 +14,5 @@ if(!empty($_SESSION['member'])){
     header('Location: '.SITE_URL.'login.php');
     exit();
 }
-// var_dump($dbh);
-
-$role = get_role($dbh, $member['role']);
 
 require('./view/mypage_view.php');

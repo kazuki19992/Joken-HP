@@ -18,7 +18,7 @@
                         <?php echo $member['account_name']; ?>
                     </div>
                     <div class="card-content">
-                        <p><?php echo $member['std_num']." / ".$member['std_name']." / ".$role;?></p>
+                        <p><?php echo $member['std_num']." / ".$member['std_name']." / ".$member['role'];?></p>
                     </div>
                     <div class="card-action">
                         <a href="" class="waves-effect waves btn-flat" ><span  class="light-blue-text text-darken-4"><i class="fas fa-user-edit fa-fw"></i> プロフィールを変更する</span></a>

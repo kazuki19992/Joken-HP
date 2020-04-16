@@ -80,6 +80,9 @@ function select_member_acId($dbh, $account_id, $password){
         if(password_verify($password, $data['password'])){
             // パスワードを検証する
 
+            // 役職を文字列で取得
+            $role_id = $data['role'];
+            $data['role'] = get_role($dbh, $role_id);
             return $data;   // 会員データを渡す
         }else{
             return FALSE;
@@ -101,6 +104,28 @@ function get_role($dbh, $role_id){
         }else{
             return FALSE;
         }
+    }
+}
+
+// news投稿
+function post_news_wiki($dbh, $filename, $post_user, $title, $view_range, $mode){
+    $date = date('Y-m-d H:i:s');
+
+    if($mode === 'news' || $mode === 'wiki'){
+        $sql = "INSERT INTO {$mode} (title, contributor_id, posted_at, md_pass, view_range)";
+        $sql .= " VALUES (:title, :contributor_id, '{$date}', :md_pass, :view_range)";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+        $stmt->bindValue(':contributor_id', $post_user, PDO::PARAM_INT);
+        $stmt->bindValue(':md_pass', $filename, PDO::PARAM_STR);
+        $stmt->bindValue(':view_range', $view_range, PDO::PARAM_INT);
+        if($stmt->execute()){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }else{
+        return FALSE;
     }
 }
 
