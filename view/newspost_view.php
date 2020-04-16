@@ -43,11 +43,10 @@ require('./view/html_head.php');
                     <div class="input-field col s8">
                         <select name="view_range">
                             <option value="" disabled selected>選択してください</option>
-                            <option value="0">外部</option>
-                            <option value="1">Jokenアカウント保持者</option>
-                            <option value="2">サークル内(OB含む)</option>
-                            <option value="3">サークル内(OB含めず)</option>
-                            <option value="4">幹部陣, 指導教員のみ</option>
+                            <option value="0">公開範囲制限なし</option>
+                            <option value="1">サークル所属学生, 卒業生のみ</option>
+                            <option value="2">サークル所属学生のみ</option>
+                            <option value="3">幹部陣, 指導教員のみ</option>
                         </select>
                         <label>公開範囲</label>
                     </div>
