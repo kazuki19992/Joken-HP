@@ -96,8 +96,8 @@ function get_role($dbh, $role_id){
     $stmt->execute();
     if($stmt->rowCount() > 0){
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(isset($data)){
-            return $data;
+        if(isset($data['role'])){
+            return $data['role'];
         }else{
             return FALSE;
         }
