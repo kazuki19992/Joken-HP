@@ -40,7 +40,7 @@ require('./view/html_head.php');
                             </div>
                         </div>
                     </div>
-                    <div class="input-field col s8">
+                    <div class="input-field col s4">
                         <select name="view_range">
                             <option value="" disabled selected>選択してください</option>
                             <option value="0">公開範囲制限なし</option>
@@ -49,6 +49,19 @@ require('./view/html_head.php');
                             <option value="3">幹部陣, 指導教員のみ</option>
                         </select>
                         <label>公開範囲</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select name="news_genre">
+                            <option value="" disabled selected>選択してください</option>
+                            <option value="0">サークル広報</option>
+                            <option value="1">サークル内部向けお知らせ</option>
+                            <option value="2">講習会情報</option>
+                            <option value="3">イベント</option>
+                            <option value="4">サイト更新情報</option>
+                            <option value="5">サイト不具合情報</option>
+                            <option value="6">新型コロナウイルス関連</option>
+                        </select>
+                        <label>ジャンル</label>
                     </div>
                     <a class="waves-effect waves-light btn-large modal-trigger col s1 tooltipped" data-position="bottom" href="#modal1" data-tooltip="Markdownの書き方"><i class="far fa-question-circle fa-fw"></i></a>
                 </div>
