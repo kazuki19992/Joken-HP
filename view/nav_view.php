@@ -3,32 +3,36 @@
     <label id="nav-open" for="nav-input"><!--<span></span>--><i class="fas fa-bars fa-fw fa-3x"></i></label>
     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
     <div id="nav-content">
-        <!-- <div id="UserInfo"> -->
-            <div style="color:#ffffff;">
+        <div id="top-margin">
+            <!-- <div style="color:#ffffff;">
                 <center>
-                    <div id="login_user">
+                    <div id="login_user"> -->
                         <?php
                             // ログイン中か確認する
-                            if(empty($_SESSION['member'])){
-                                // ログインしていない
-                                echo('はじめまして！<BR>');
-                                echo('<a href="signup.php">新規会員登録</a> <a href="login.php">ログイン</a>');
-                            }else{
-                                $name = html_escape($member['account_name']);
-                                echo('ようこそ。'.$name.'さん。<BR>');
-                            }
+                            // if(empty($_SESSION['member'])){
+                            //     // ログインしていない
+                            //     echo('はじめまして！<BR>');
+                            //     echo('<a href="signup.php">新規会員登録</a> <a href="login.php">ログイン</a>');
+                            // }else{
+                            //     $name = html_escape($member['account_name']);
+                            //     echo('ようこそ。'.$name.'さん。<BR>');
+                            // }
                         ?>
-                    </div>
-                    <hr>
-                </center>
-            <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <hr> -->
+                <!-- </center> 
+            </div> -->
         </div>
-
+        <p class="nv_cts_extra"><i class="fas fa-exclamation fa-fw"></i> 緊急速報</p>
+        <a class="nv_Link_extra tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="COVID-19(新型コロナウイルス感染症)による弊学、及び弊サークルの運営についてお知らせします"> <i class="fas fa-exclamation-triangle fa-fw"></i> 新型コロナウイルス関連情報 </a>
+        <a class="nv_Link_extra tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="福島県版のCOVID-19対策サイトです(別タブ)"> <i class="fas fa-info-circle fa-fw"></i> COVID-19対策サイト <i class="fas fa-external-link-alt fa-fw"></i></a>
+        <a class="nv_Link_extra tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="大雨による避難情報をまとめています"> <i class="fas fa-cloud-showers-heavy"></i> 大雨情報</a>
+        
         <p class="nv_cts0"><i class="fas fa-laptop-code fa-fw"></i> サークル</p>
         <a class="nv_Link tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="情報研究会の公式情報をお知らせします"> <i class="fas fa-newspaper fa-fw"></i> お知らせ </a>
-        <a class="nv_Link tooltipped waves-effect waves-light" href="" onclick="alert('この機能は今後解放予定です。\nお楽しみに！')" data-position="right" data-tooltip="情報研究会のWikiページです(現在工事中)">
+        <!-- <a class="nv_Link tooltipped waves-effect waves-light" href="" onclick="alert('この機能は今後解放予定です。\nお楽しみに！')" data-position="right" data-tooltip="情報研究会のWikiページです(現在工事中)">
             <i class="fas fa-database fa-fw"></i> Knowledge Space 
-        </a>
+        </a> -->
         <BR>
         <p class="nv_cts1"><i class="fas fa-user-circle fa-fw"></i> アカウント</p>
         <?php
@@ -62,9 +66,9 @@
                 if($member['role'] >= 1 || $member['role'] <= 6){
                     $nav_opt = '<p class="nv_cts3"><i class="fas fa-tools fa-fw"></i> 管理ツール</p>';
                     $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="newspost.php" data-position="right" data-tooltip="お知らせの投稿が可能です"> <i class="fas fa-newspaper fa-fw"></i> お知らせの投稿 </a>';
-                    $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="アンケートを開始することができます(機能実装予定)"> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>';
+                    // $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="" data-position="right" data-tooltip="アンケートを開始することができます(機能実装予定)"> <i class="fas fa-clipboard-list fa-fw"></i> アンケートの投稿 </a>';
                     if($member['role'] !== '5'){
-                        $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./edit-users.php" data-position="right" data-tooltip="ユーザー権限の変更や強制退会などを行うことが可能です"> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>';
+                        // $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./edit-users.php" data-position="right" data-tooltip="ユーザー権限の変更や強制退会などを行うことが可能です"> <i class="fas fa-user-circle fa-fw"></i> ユーザーの編集 </a>';
                         $nav_opt .= '<a class="nv_Link3 tooltipped waves-effect waves-light" href="./site-setting.php" data-position="right" data-tooltip="サイトURLの変更やデータベースの設定などサイトの設定が可能です"> <i class="fas fa-sliders-h fa-fw"></i> その他のサイト設定 </a>';
                     }
                     echo $nav_opt;

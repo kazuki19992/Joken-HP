@@ -118,6 +118,9 @@
     color: skyblue;
     text-decoration: none;
 }
+#top-margin{
+    margin-top: 4em;
+}
 /* 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #UserInfo {
@@ -209,6 +212,23 @@
     color: #fff;
 }
 
+/* 緊急時 */
+.nv_Link_extra {
+    padding: 0.5em 1em;
+    display: block;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(255, 0, 119) 50%);
+    background-position: 0 0;
+    background-size: 200% auto;
+    transition: .3s;
+    font-size: 125%;
+    color: rgb(255, 0, 119);
+}
+
+.nv_Link_extra:hover {
+    background-position: -100% 0;
+    color: #fff;
+}
+
 .nv_cts0 {
     padding: 0.2em 1em;
     color: #ff9800;
@@ -230,6 +250,12 @@
 .nv_cts3 {
     padding: 0.2em 1em;
     color: #001E43;
+    size: 50%;
+}
+
+.nv_cts_extra {
+    padding: 0.2em 1em;
+    color: rgb(255, 0, 119);
     size: 50%;
 }
 
