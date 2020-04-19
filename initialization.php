@@ -184,19 +184,24 @@ if(isset($_GET['page'])) {
             // 異常値検出時にtrue
             $errflg200 = FALSE;
             
+
+
             // バリデーション(空文字)
             if($name === "" || $std_num === "" || $address === ""){
                 $errflg200 = TRUE;
+
             }
             
             // バリデーション(文字数)
-            if(mb_strlen($std_num, 'UTF-8') === 6 || mb_strlen($std_num, 'UTF-8') === 5 || mb_strlen($std_num, 'UTF-8') === 8){
+            if(mb_strlen($std_num, 'UTF-8') !== 6 && mb_strlen($std_num, 'UTF-8') !== 5 && mb_strlen($std_num, 'UTF-8') !== 8){
                 $errflg200 = TRUE;
+
             }
 
             // バリデーション(role)
-            if($role !== '1' && $role !== '2' && $role !== '3' && $role !== '4' && $role !== '5'){
+            if($role !== '1' && $role !== '2' && $role !== '3' && $role !== '4' && $role !== '6'){
                 $errflg200 = TRUE;
+
             }
 
             // エラー有効時にエラー画面表示
