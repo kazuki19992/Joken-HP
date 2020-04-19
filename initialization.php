@@ -150,7 +150,7 @@ if(isset($_GET['page'])) {
                     <label for="name">名前</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="std_num" type="text" class="validate" name="std_num" data-length="6">
+                    <input id="std_num" type="text" class="validate" name="std_num" data-length="8">
                     <label for="std_num">学生番号(学部生:6桁, 院生:5桁)</label>
                 </div>
                 <div class="input-field col s12">
@@ -190,7 +190,7 @@ if(isset($_GET['page'])) {
             }
             
             // バリデーション(文字数)
-            if(mb_strlen($std_num, 'UTF-8') > 6 || mb_strlen($std_num, 'UTF-8') < 5){
+            if(mb_strlen($std_num, 'UTF-8') === 6 || mb_strlen($std_num, 'UTF-8') === 5 || mb_strlen($std_num, 'UTF-8') === 8){
                 $errflg200 = TRUE;
             }
 
