@@ -83,10 +83,23 @@ function select_member_acId($dbh, $account_id, $password){
             // 役職を文字列で取得
             $role_id = $data['role'];
             $data['role'] = get_role($dbh, $role_id);
+            login_time($dbh, $data['id']);
             return $data;   // 会員データを渡す
         }else{
             return FALSE;
         }
+        return FALSE;
+    }
+}
+
+// 最終ログイン時間を変更
+function login_time($dbh, $id){
+    $date = date('Y-m-d H:i:s');
+    $sql = "UPDATE Account SET last_login='{$date}' WHERE id='{$id}'";
+    $stmt = $dbh->prepare($sql);
+    if($stmt->execute()){
+        return TRUE;
+    }else{
         return FALSE;
     }
 }
@@ -128,6 +141,8 @@ function post_news_wiki($dbh, $filename, $post_user, $title, $view_range, $mode)
         return FALSE;
     }
 }
+
+
 
 function post_store($dbh){
     if(isset($_FILES['img'])){

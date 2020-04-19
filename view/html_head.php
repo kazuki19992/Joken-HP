@@ -21,7 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- fontawesome(アイコン) -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"> -->
+    <script src="https://kit.fontawesome.com/38159bab1f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="./CSS/style.css" media="screen and (min-width: 1024px)">
 
