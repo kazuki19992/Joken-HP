@@ -18,7 +18,7 @@ function get_db_connect(){
 }
 
 function acId_exists($dbh, $ac_id){
-    
+
     $sql = "SELECT COUNT(id) FROM Account where account_id = :account_id";
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':account_id', $ac_id, PDO::PARAM_STR);
@@ -121,17 +121,19 @@ function get_role($dbh, $role_id){
 }
 
 // news投稿
-function post_news_wiki($dbh, $filename, $post_user, $title, $view_range, $mode){
+function post_news_wiki($dbh, $filename, $post_user, $title, $view_range, $mode, $genre){
     $date = date('Y-m-d H:i:s');
 
     if($mode === 'news' || $mode === 'wiki'){
-        $sql = "INSERT INTO {$mode} (title, contributor_id, posted_at, md_pass, view_range)";
-        $sql .= " VALUES (:title, :contributor_id, '{$date}', :md_pass, :view_range)";
+        $sql = "INSERT INTO {$mode} (title, contributor_id, posted_at, md_pass, view_range, genre)";
+        $sql .= " VALUES (:title, :contributor_id, '{$date}', :md_pass, :view_range, :genre)";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':contributor_id', $post_user, PDO::PARAM_INT);
         $stmt->bindValue(':md_pass', $filename, PDO::PARAM_STR);
         $stmt->bindValue(':view_range', $view_range, PDO::PARAM_INT);
+        $stmt->bindValue(':genre', $genre, PDO::PARAM_INT);
+
         if($stmt->execute()){
             return TRUE;
         }else{

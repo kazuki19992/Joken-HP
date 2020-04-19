@@ -21,14 +21,16 @@ if(isset($_GET['mode'])){
         $content = $_POST['content'];
         $title = $_POST['title'];
         $view_range = $_POST['view_range'];
+        $genre = $_POST['news_genre'];
+
         if($mode === 'news'){
-            if(!post_news_wiki($dbh, 'MD/news/'.$filename, $member['id'], $title, $view_range, $mode)){
+            if(!post_news_wiki($dbh, 'MD/news/'.$filename, $member['id'], $title, $view_range, $mode, $genre)){
                 $message = 'システムエラーが発生しました';
                 $detail = 'システムエラーが発生しました。管理者に報告してください';
                 err_jmp(0, $message, './newspost.php', '200', $detail);
             }
         }elseif($mode === 'wiki'){
-            if(!post_news_wiki($dbh, 'MD/wiki/'.$filename, $member['id'], $title, $view_range, $mode)){
+            if(!post_news_wiki($dbh, 'MD/wiki/'.$filename, $member['id'], $title, $view_range, $mode, $genre)){
                 $message = 'システムエラーが発生しました';
                 $detail = 'システムエラーが発生しました。管理者に報告してください';
                 err_jmp(0, $message, './newspost.php', '200', $detail);
