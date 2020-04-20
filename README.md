@@ -5,7 +5,7 @@
 - master
   - 本番環境
 - develop
-  - ローカル環境(テスト用)
+  - ローカル環境（テスト用）
 - staging
   - staging -> master
   - masterにマージする前のテスト用
