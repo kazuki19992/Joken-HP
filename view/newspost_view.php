@@ -53,13 +53,9 @@ require('./view/html_head.php');
                     <div class="input-field col s4">
                         <select name="news_genre">
                             <option value="" disabled selected>選択してください</option>
-                            <option value="0">サークル広報</option>
-                            <option value="1">サークル内部向けお知らせ</option>
-                            <option value="2">講習会情報</option>
-                            <option value="3">イベント</option>
-                            <option value="4">サイト更新情報</option>
-                            <option value="5">サイト不具合情報</option>
-                            <option value="6">新型コロナウイルス関連</option>
+                            <?php foreach($genre as $var){ ?>
+                            <option value="<?php echo $var['id']; ?>"><?php echo $var['genre']; ?></option>
+                            <?php } ?>
                         </select>
                         <label>ジャンル</label>
                     </div>

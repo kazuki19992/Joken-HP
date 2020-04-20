@@ -12,5 +12,8 @@ if(!empty($_SESSION['member'])){
     header('Location: ./index.php');
     exit();
 }
+$dbh = get_db_connect();    // DB接続
+
+$genre = get_news_genre($dbh);
 
 require('./view/newspost_view.php');

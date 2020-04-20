@@ -144,7 +144,15 @@ function post_news_wiki($dbh, $filename, $post_user, $title, $view_range, $mode,
     }
 }
 
-
+// newsのジャンルを全件取得
+function get_news_genre($dbh){
+    $sql='SELECT * FROM news_genre';
+    $stmt = $dbh->prepare($sql);
+    if($stmt->execute()){
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+}
 
 function post_store($dbh){
     if(isset($_FILES['img'])){
