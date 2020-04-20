@@ -15,5 +15,6 @@ if(!empty($_SESSION['member'])){
 $dbh = get_db_connect();    // DB接続
 
 $genre = get_news_genre($dbh);
+$view_range = get_view_range($dbh);
 
 require('./view/newspost_view.php');

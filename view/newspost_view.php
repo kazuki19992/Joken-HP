@@ -43,18 +43,17 @@ require('./view/html_head.php');
                     <div class="input-field col s4">
                         <select name="view_range">
                             <option value="" disabled selected>選択してください</option>
-                            <option value="0">公開範囲制限なし</option>
-                            <option value="1">サークル所属学生, 卒業生のみ</option>
-                            <option value="2">サークル所属学生のみ</option>
-                            <option value="3">幹部陣, 指導教員のみ</option>
+                            <?php foreach($view_range as $columm_view){ ?>
+                            <option value="<?php echo $columm_view['id']; ?>"><?php echo $columm_view['element']; ?></option>
+                            <?php } ?>
                         </select>
                         <label>公開範囲</label>
                     </div>
                     <div class="input-field col s4">
                         <select name="news_genre">
                             <option value="" disabled selected>選択してください</option>
-                            <?php foreach($genre as $var){ ?>
-                            <option value="<?php echo $var['id']; ?>"><?php echo $var['genre']; ?></option>
+                            <?php foreach($genre as $columm_genre){ ?>
+                            <option value="<?php echo $columm_genre['id']; ?>"><?php echo $columm_genre['genre']; ?></option>
                             <?php } ?>
                         </select>
                         <label>ジャンル</label>
