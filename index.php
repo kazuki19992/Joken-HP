@@ -4,7 +4,8 @@
     require_once('./helpers/error_helper.php');
     require_once('./helpers/extra_helper.php');
     session_start();
-    
+    $dbh = get_db_connect();    // DB接続
+
     // ログイン中か確認する
     if(empty($_SESSION['member'])){
         // 未ログイン
@@ -24,4 +25,5 @@
 
     }
 
+    
     require('./view/index_view.php');

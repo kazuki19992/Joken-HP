@@ -83,6 +83,8 @@ function select_member_acId($dbh, $account_id, $password){
             // 役職を文字列で取得
             $role_id = $data['role'];
             $data['role'] = get_role($dbh, $role_id);
+            // 役職から記事閲覧レベルを取得
+            $data['view_level'] = role_to_view_range($dbh, $role_id);
             login_time($dbh, $data['id']);
             return $data;   // 会員データを渡す
         }else{
@@ -114,6 +116,22 @@ function get_role($dbh, $role_id){
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         if(isset($data['role'])){
             return $data['role'];
+        }else{
+            return FALSE;
+        }
+    }
+}
+
+// 役職(属性)IDからnews_wikiの閲覧レベルを取得
+function role_to_view_range($dbh, $role_id){
+    $sql = "SELECT view_level FROM role WHERE role_id = :role_id LIMIT 1";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':role_id', $role_id, PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(isset($data['view_level'])){
+            return $data['view_level'];
         }else{
             return FALSE;
         }
@@ -153,6 +171,32 @@ function get_news_genre($dbh){
         return $data;
     }
 }
+
+// 公開範囲を全件取得
+function get_view_range($dbh){
+    $sql = "SELECT * FROM view_range";
+    $stmt = $dbh->prepare($sql);
+    if($stmt->execute()){
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+}
+
+// ニュースをid順に全件取得する
+// function get_news_list($dbh, $desc, $role){
+//     if($desc){
+//         $desc = 'DESC';
+//     }else{
+//         $desc = '';
+//     }
+
+//     if($role === NULL || $role === '0'){
+//         $sql = "SELECT * FROM news ORDER BY id {$desc} WHERE view_range = "
+//     }
+//     $sql = "SELECT * FROM news ORDER BY id {$desc}";
+
+
+// }
 
 function post_store($dbh){
     if(isset($_FILES['img'])){
