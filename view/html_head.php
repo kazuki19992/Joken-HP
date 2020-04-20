@@ -30,6 +30,12 @@
     <link rel="stylesheet" href="./CSS/style_mobile.css" media="screen and (max-width: 1023px)">
     <link rel="stylesheet" type="text/css" href="./CSS/HamburgerMenu.css">
 
+    <!-- GitHubボタン -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- マテリアルアイコン -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         $(document).ready(function(){
             $('select').formSelect();

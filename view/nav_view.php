@@ -34,8 +34,8 @@
         <?php
             // ログイン中か確認する
             if(!empty($_SESSION['member'])){
-                echo '<a class="nv_Link tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="情報研究会の公式Slackです"> <i class="fab fa-slack fa-fw"></i> Joken公式Slack </a>';
-                echo '<a class="nv_Link tooltipped waves-effect waves-light" href="./news.php" data-position="right" data-tooltip="情報研究会の公式Discord"> <i class="fab fa-discord fa-fw"></i> Jokenオンラインサーバー </a>';
+                echo '<a class="nv_Link tooltipped waves-effect waves-light" href="https://nu-joken.slack.com/" target="_blank" data-position="right" data-tooltip="情報研究会の公式Slackです"> <i class="fab fa-slack fa-fw"></i> Joken公式Slack <i class="fas fa-external-link-alt fa-fw"></i></a>';
+                echo '<a class="nv_Link tooltipped waves-effect waves-light" href="https://discord.gg/memPTpG" target="_blank" data-position="right" data-tooltip="情報研究会の公式Discord"> <i class="fab fa-discord fa-fw"></i> Jokenオンラインサーバー <i class="fas fa-external-link-alt fa-fw"></i></a>';
             }
         ?>
         <!-- <a class="nv_Link tooltipped waves-effect waves-light" href="" onclick="alert('この機能は今後解放予定です。\nお楽しみに！')" data-position="right" data-tooltip="情報研究会のWikiページです(現在工事中)">

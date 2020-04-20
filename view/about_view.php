@@ -47,16 +47,27 @@ require('./view/html_head.php');
             <div class="card grey lighten-3 hoverable">
                 <div class="card-content">
                     <span class="card-title">ソースコードについて</span>
-                    <p class="card_p">当サイトのソースコードはGitHubにて公開されており、誰でも自由に使用することが可能です。詳しくは下のリンクよりGitHubリポジトリをご確認ください。</p>
+                    <p class="card_p">当サイトのソースコードはMITライセンスにて公開されており、誰でも自由に使用することが可能です。詳しくは下のリンクよりGitHubリポジトリをご確認ください。</p>
+                    <p class="card_p">この作品は <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>の下に提供されています。</p>
                 </div>
                 <div class="card-action">
-                <a href="https://github.com/kazuki19992/Joken-HP" class="waves-effect waves btn-flat" target="_blank" rel="noopener noreferrer"><span  class="light-blue-text text-darken-4"><i class="fab fa-github fa-fw"></i> GitHubリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></span></a>
+                    <!-- <a href="https://github.com/kazuki19992/Joken-HP" class="waves-effect waves btn-flat" target="_blank" rel="noopener noreferrer"><span  class="light-blue-text text-darken-4"><i class="fab fa-github fa-fw"></i> GitHubリポジトリ <i class="fas fa-external-link-alt fa-fw"></i></span></a> -->
+                    <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/kazuki19992/Joken-HP" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" aria-label="View this Repository">GitHub kazuki19992/Joken-HP</a>
+                    <!-- Place this tag where you want the button to render. -->
+                    <a class="github-button" href="https://github.com/kazuki19992/Joken-HP/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue kazuki19992/Joken-HP on GitHub">Issue</a>
+                    <!-- Place this tag where you want the button to render. -->
+                    <a class="github-button" href="https://github.com/kazuki19992/Joken-HP" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star kazuki19992/Joken-HP on GitHub">Star</a>
+                    <!-- Place this tag where you want the button to render. -->
+                    <a class="github-button" href="https://github.com/kazuki19992/Joken-HP/fork" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork kazuki19992/Joken-HP on GitHub">Fork</a>
+                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
                 </div>
             </div>
 
             <div class="card grey lighten-3 hoverable">
                 <div class="card-content">
                     <span class="card-title">クレジット</span>
+                    <i class="fab fa-php fa-fw"></i><i class="fab fa-js fa-fw"></i><i class="fas fa-database fa-fw"></i><i class="fab fa-font-awesome fa-fw"></i><i class="fab fa-css3 fa-fw"></i>
                     <p class="card_p">製作：櫛田一樹(2020年度 情報研究会 会長)</p>
                     <p class="card_p">日本大学工学部 情報研究会</p>
                 </div>
