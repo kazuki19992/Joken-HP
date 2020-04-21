@@ -20,8 +20,8 @@
                 ?>
 
                     <a href="<?php echo SITE_URL.'news.php?id='.$news_list[$i]['id']; ?>" class="collection-item">
-                        <?php echo $news_list[$i]['title']; ?><span class="new badge" data-badge-caption="広報"></span><BR>
-                        <span class="top-news-info"><?php echo $news_list[$i]['posted_at'].' '.uid2ac_name($dbh, $news_list[$i]['contributor_id']); ?></span>
+                        <?php echo $news_list[$i]['title']; ?><span class="new badge <?php echo $columm['color']; ?>" data-badge-caption="<?php echo $columm['short']; ?>"><BR>
+                        <span class="top-news-info"><?php echo $news_list[$i]['posted_at'].' / '.uid2ac_name($dbh, $news_list[$i]['contributor_id']); ?></span>
                     </a>
 
                 <?php
@@ -35,7 +35,7 @@
 
                     <a href="<?php echo SITE_URL.'news.php?id='.$columm['id']; ?>" class="collection-item">
                         <?php echo $columm['title']; ?><span class="new badge <?php echo $columm['color']; ?>" data-badge-caption="<?php echo $columm['short']; ?>"></span><BR>
-                        <span class="top-news-info"><?php echo $columm['posted_at'].' '.uid2ac_name($dbh, $columm['contributor_id']); ?></span>
+                        <span class="top-news-info"><?php echo $columm['posted_at'].' / '.uid2ac_name($dbh, $columm['contributor_id']); ?></span>
                     </a>
 
                 <?php

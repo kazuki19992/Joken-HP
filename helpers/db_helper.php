@@ -190,12 +190,49 @@ function get_news_list($dbh, $desc, $view_range){
         $desc = '';
     }
 
-    $sql = "SELECT * FROM news INNER JOIN news_genre ON news.genre = news_genre.id WHERE news.view_range <= :view_range AND news.deleted_at IS NULL ORDER BY news.id {$desc}";
+    $sql = "SELECT 
+    news.id as id,
+    news.title as title,
+    news.contributor_id as contributor_id,
+    news.posted_at as posted_at,
+    news.md_pass as md_pass,
+    news.view_range as view_range,
+    news.genre as genre,
+    news.deleted_at as deleted_at,
+    news_genre.id as genre_id,
+    news_genre.genre as genre_text,
+    news_genre.short as short,
+    news_genre.color as color,
+    news_genre.dead as genre_dead
+    FROM news INNER JOIN news_genre ON news.genre = news_genre.id WHERE news.view_range <= :view_range AND news.deleted_at IS NULL ORDER BY news.id {$desc}";
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':view_range', $view_range, PDO::PARAM_INT);
 
     if($stmt->execute()){
         $data = $stmt->fetchAll();
+        return $data;
+    }
+}
+
+function get_news($dbh, $news_id){
+    $sql = "SELECT * FROM news WHERE id = :news_id LIMIT 1";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':news_id', $news_id, PDO::PARAM_INT);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        $data += get_news_data_genre_and_color($dbh, $data['genre']);
+        return $data;
+    }
+}
+
+function get_news_data_genre_and_color($dbh, $genre_id){
+    $sql = "SELECT genre as genre_text, color FROM news_genre WHERE id = :genre_id LIMIT 1";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':genre_id', $genre_id, PDO::PARAM_INT);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
 }
