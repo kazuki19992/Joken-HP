@@ -27,7 +27,7 @@
                 <?php
                     }
                 }elseif(count($news_list) !== 0){
-                    foreach($news_list as $columm){ 
+                    foreach($news_list as $columm){
                         if($columm['color'] === NULL){
                             $columm['color'] = '';
                         }
