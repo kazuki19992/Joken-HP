@@ -11,50 +11,44 @@ require('./view/html_head.php');
         <div id="wiki-left">
             <h4 id="green-title">過去の投稿記事</h4>
             <div class="collection hoverable">
-                <a href="#!" class="collection-item">
-                    広報7<BR>
-                    <span class="top-news-info">2099/12/31 カズ之助</span>
+                <?php foreach($news_list as $columm){?>
+                <a href="<?php echo SITE_URL.'news.php?id='.$columm['id']; ?>" class="collection-item">
+                    <?php echo $columm['title']; ?><span class="new badge <?php echo $columm['color']; ?>" data-badge-caption="<?php echo $columm['short']; ?>"></span><BR>
+                    <span class="top-news-info"><?php echo $columm['posted_at'].' / '.uid2ac_name($dbh, $columm['contributor_id']); ?></span>
                 </a>
-                <a href="#!" class="collection-item">
-                    広報6<BR>
-                    <span class="top-news-info">2088/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報5<BR>
-                    <span class="top-news-info">2077/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報4<BR>
-                    <span class="top-news-info">2066/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報3<BR>
-                    <span class="top-news-info">2055/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報2<BR>
-                    <span class="top-news-info">2044/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報1<BR>
-                    <span class="top-news-info">2033/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    サイトリニューアル！<BR>
-                    <span class="top-news-info">2020/03/20 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    クローズドテストへの参加ありがとうございます！<BR>
-                    <span class="top-news-info">2020/03/20 カズ之助</span>
-                </a>
+                <?php } ?>
             </div>
         </div>
 
         <div id="wiki-right">
-            <h4 id="blue-title">クローズドテストへの参加ありがとうございます！</h4>
-            <p id="news-info">2020/03/20 カズ之助</p>
+            <h4 id="blue-title">
+                <?php
+                if(isset($news_id)){
+                    $news_title = $news_data['title'];
+                    $news_title .= '<span class="new badge '. $news_data['color'].'" data-badge-caption="'.$news_data['genre_text'].'">';
+                    echo $news_title;
+                }else{
+                    echo '記事を選択してください';
+                }
+                ?>
+            </h4>
+            <p id="news-info">
+                <?php
+                if(isset($news_id)){
+                    $tags = $news_data['posted_at'].' / '.uid2ac_name($dbh, $columm['contributor_id']);
+                    echo $tags;
+                }
+                ?>
+            </p>
             <hr>
-            ここに内容が表示されます
+            <?php
+            if(isset($news_id)){
+                $md2html = 'ここにパースしたマークダウンが入る';
+                echo $md2html;
+            }else{
+                echo 'ここに内容が表示されます';
+            }
+            ?>
         </div>
     </div>
 </body>
