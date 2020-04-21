@@ -11,38 +11,38 @@
         <div id="left">
             <h4 id="green-title">お知らせ</h4>
             <div class="collection hoverable">
-                <a href="#!" class="collection-item">
-                    広報7<span class="new badge" data-badge-caption="広報"></span><BR>
-                    <span class="top-news-info">2099/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報6<span class="new badge red" data-badge-caption="コロナ"></span><BR>
-                    <span class="top-news-info">2088/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報5<span class="new badge blue" data-badge-caption="新機能"></span><BR>
-                    <span class="top-news-info">2077/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報4<span class="new badge orange" data-badge-caption="不具合"></span><BR>
-                    <span class="top-news-info">2066/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報3<span class="new badge red" data-badge-caption="コロナ"></span><BR>
-                    <span class="top-news-info">2055/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報2<span class="new badge" data-badge-caption="講習会"></span><BR>
-                    <span class="top-news-info">2044/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    広報1<span class="new badge orange" data-badge-caption="メンテ"></span><BR>
-                    <span class="top-news-info">2033/12/31 カズ之助</span>
-                </a>
-                <a href="#!" class="collection-item">
-                    サイトリニューアル！<BR>
-                    <span class="top-news-info">2020/03/20 カズ之助</span>
-                </a>
+                <?php
+                if(count($news_list) > 8){
+                    for($i = 0; $i <= 8; $i++){
+                        if($news_list[$i]['color'] === NULL){
+                            $news_list[$i]['color'] = '';
+                        }
+                ?>
+
+                    <a href="<?php echo SITE_URL.'news.php?id='.$news_list[$i]['id']; ?>" class="collection-item">
+                        <?php echo $news_list[$i]['title']; ?><span class="new badge" data-badge-caption="広報"></span><BR>
+                        <span class="top-news-info"><?php echo $news_list[$i]['posted_at'].' '.uid2ac_name($dbh, $news_list[$i]['contributor_id']); ?></span>
+                    </a>
+
+                <?php
+                    }
+                }elseif(count($news_list) !== 0){
+                    foreach($news_list as $columm){ 
+                        if($columm['color'] === NULL){
+                            $columm['color'] = '';
+                        }
+                ?>
+
+                    <a href="<?php echo SITE_URL.'news.php?id='.$columm['id']; ?>" class="collection-item">
+                        <?php echo $columm['title']; ?><span class="new badge <?php echo $columm['color']; ?>" data-badge-caption="<?php echo $columm['short']; ?>"></span><BR>
+                        <span class="top-news-info"><?php echo $columm['posted_at'].' '.uid2ac_name($dbh, $columm['contributor_id']); ?></span>
+                    </a>
+
+                <?php
+                    }
+                }else{ ?>
+                    <p class="none">まだお知らせが投稿されていません</p>
+                <?php } ?>
             </div>
 
             <!-- 右寄せのdivを作って中にaタグを入れるっぽい -->
