@@ -183,20 +183,38 @@ function get_view_range($dbh){
 }
 
 // ニュースをid順に全件取得する
-// function get_news_list($dbh, $desc, $role){
-//     if($desc){
-//         $desc = 'DESC';
-//     }else{
-//         $desc = '';
-//     }
+function get_news_list($dbh, $desc, $view_range){
+    if($desc){
+        $desc = 'DESC';
+    }else{
+        $desc = '';
+    }
 
-//     if($role === NULL || $role === '0'){
-//         $sql = "SELECT * FROM news ORDER BY id {$desc} WHERE view_range = "
-//     }
-//     $sql = "SELECT * FROM news ORDER BY id {$desc}";
+    $sql = "SELECT * FROM news INNER JOIN news_genre ON news.genre = news_genre.id WHERE news.view_range <= :view_range AND news.deleted_at IS NULL ORDER BY news.id {$desc}";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':view_range', $view_range, PDO::PARAM_INT);
 
+    if($stmt->execute()){
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+}
 
-// }
+// ユーザーidからアカウント名を取得
+function uid2ac_name($dbh, $user_id){
+    $sql = "SELECT account_name FROM Account WHERE id = :user_id LIMIT 1";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(isset($data['account_name'])){
+            return $data['account_name'];
+        }else{
+            return FALSE;
+        }
+    }
+}
 
 function post_store($dbh){
     if(isset($_FILES['img'])){
