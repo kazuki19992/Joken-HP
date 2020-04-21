@@ -2,6 +2,16 @@
 <?php
 require('./view/html_head.php');
 ?>
+<!-- マークダウン関係 -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- マークダウンコードハイライト -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css"> -->
+<link rel="stylesheet" href="./CSS/github.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+<script src="./JS/text_md.js"></script>
+<link rel="stylesheet" href="./CSS/md2html.css">
+
 <body>
     <?php
     require('./view/header.php');
@@ -43,8 +53,7 @@ require('./view/html_head.php');
             <hr>
             <?php
             if(isset($news_id)){
-                $md2html = 'ここにパースしたマークダウンが入る';
-                echo $md2html;
+                echo $news_html;
             }else{
                 echo 'ここに内容が表示されます';
             }

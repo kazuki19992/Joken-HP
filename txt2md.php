@@ -28,6 +28,8 @@ if(isset($_GET['mode'])){
                 $message = 'システムエラーが発生しました';
                 $detail = 'システムエラーが発生しました。管理者に報告してください';
                 err_jmp(0, $message, './newspost.php', '200', $detail);
+            }else{
+                file_put_contents('./MD/news/'.$filename, $content);
             }
         }elseif($mode === 'wiki'){
             if(!post_news_wiki($dbh, 'MD/wiki/'.$filename, $member['id'], $title, $view_range, $mode, $genre)){
@@ -36,8 +38,6 @@ if(isset($_GET['mode'])){
                 err_jmp(0, $message, './newspost.php', '200', $detail);
             }
         }
-
-        file_put_contents($filename, $content);
 
         header('Location: '.SITE_URL);
     }
