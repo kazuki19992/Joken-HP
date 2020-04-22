@@ -13,14 +13,14 @@
             <div class="collection hoverable">
                 <?php
                 if(count($news_list) > 8){
-                    for($i = 0; $i <= 8; $i++){
+                    for($i = 0; $i < 8; $i++){
                         if($news_list[$i]['color'] === NULL){
                             $news_list[$i]['color'] = '';
                         }
                 ?>
 
                     <a href="<?php echo SITE_URL.'news.php?id='.$news_list[$i]['id']; ?>" class="collection-item">
-                        <?php echo $news_list[$i]['title']; ?><span class="new badge <?php echo $columm['color']; ?>" data-badge-caption="<?php echo $columm['short']; ?>"><BR>
+                        <?php echo $news_list[$i]['title']; ?><span class="new badge <?php echo $news_list[$i]['color']; ?>" data-badge-caption="<?php echo $news_list[$i]['short']; ?>"></span><BR>
                         <span class="top-news-info"><?php echo $news_list[$i]['posted_at'].' / '.uid2ac_name($dbh, $news_list[$i]['contributor_id']); ?></span>
                     </a>
 
