@@ -8,3 +8,10 @@ function regist_fwrite($filename, $contents){
         return 1;
     }
 }
+
+// ファイルの暗号化
+function ssl_encryption($contents, $key){
+    // 暗号化
+    $encrypt = openssl_encrypt($contents, 'aes-256-ecb', $key);
+    return $encrypt;
+}
