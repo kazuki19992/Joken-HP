@@ -5,6 +5,18 @@ require_once('../helpers/error_helper.php');
 if(isset($_GET['mode'])){
     $mode = $_GET['mode'];
 
+    if($mode === 'name_host'){
+        // 鍵の生成
+        // $key = hash('sha-256', hash('sha256', uniqid()), 16, 36);
+        $key = hash('sha256',uniqid());
+        // 鍵の登録
+        regist_fwrite('KEY', $key);
+    }elseif($mode === 'account'){
+        // 鍵の読み込み
+        $filename = '../helpers/KEY';
+        $key = file_get_contents($filename);
+    }
+
     // データベースのホスト, データベース名をDB_DSNに保存
     if($mode === 'name_host'){
         if(isset($_POST['db_host']) && isset($_POST['db_name'])){
@@ -20,7 +32,10 @@ if(isset($_GET['mode'])){
             }
 
             $dsn = 'mysql:dbname='.$dbname.';host='.$dbhost.';charset=utf8';
-            if(regist_fwrite('../helpers/DB_DSN', $dsn) === 0){
+            // 暗号化後のdsn
+            $encrypted_dsn = ssl_encryption($dsn, $key);
+
+            if(regist_fwrite('../helpers/DB_DSN', $encrypted_dsn) === 0){
                 header('Location: ../initialization.php?page=4');
                 exit();
             }else{
@@ -40,8 +55,11 @@ if(isset($_GET['mode'])){
         if($_POST['ac_name']){
             $ac_name = $_POST['ac_name'];
             $password = $_POST['password'];
-            if(file_put_contents('../helpers/DB_ACCOUNT_NAME', $ac_name, LOCK_EX) !== false){
-                if(file_put_contents('../helpers/DB_ACCOUNT_PASS', $password, LOCK_EX) !== false){
+            // 暗号化
+            $encrypted_ac_name = ssl_encryption($ac_name, $key);
+            $encrypted_password = ssl_encryption($password, $key);
+            if(file_put_contents('../helpers/DB_ACCOUNT_NAME', $encrypted_ac_name, LOCK_EX) !== false){
+                if(file_put_contents('../helpers/DB_ACCOUNT_PASS', $encrypted_password, LOCK_EX) !== false){
                     header('Location: ../initialization.php?page=5');
                     exit();
                 }else{
