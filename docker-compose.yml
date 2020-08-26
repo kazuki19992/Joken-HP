@@ -15,7 +15,8 @@ services:
     depends_on: ["db"]
 
   php:
-    image: php:7.4-fpm
+    # image: php:7.4-fpm
+    build: ./php
     volumes:
       - ./nginx/html:/usr/share/nginx/html
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
