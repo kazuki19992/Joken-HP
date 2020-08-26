@@ -1,0 +1,6 @@
+nginx/html/helpers/SITE_URL
+nginx/html/helpers/DB_DSN
+nginx/html/helpers/DB_ACCOUNT_NAME
+nginx/html/helpers/DB_ACCOUNT_PASS
+nginx/html/helpers/KEY
+nginx/html/DB
