@@ -1,0 +1,33 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass_fB3uWvTS
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports: ["8888:80"]
+    depends_on: ["db"]
+
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+    depends_on: ["db"]
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/html:/usr/share/nginx/html
+    restart: always
+    ports: ["8080:80"]
+    depends_on: ["php"]
+
+# https://qiita.com/tomokei5634/items/ff0784e88b026b530e3e
